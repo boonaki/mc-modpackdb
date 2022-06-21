@@ -26,6 +26,13 @@ app.get('/', (req,res) => {
 //     // search db using user and pass then return status code and required data
 // })
 
+// app.post('/signup', (req, res) => {
+//     let user = req.body.user
+//     let pass = md5(req.body.pass)
+//     // attempt to add user to db maybe check to see if user already exist
+//     // Primary key in mongodb?
+// })
+
 app.listen(PORT, () => {
     console.log('server is running')
 })
