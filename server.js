@@ -8,6 +8,9 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+})
 
 //connect to db
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
@@ -56,9 +59,6 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
 
 
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
-})
 
 app.listen(PORT, () => {
     console.log('server is running')
