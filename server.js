@@ -13,22 +13,30 @@ app.use(express.json());
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     if (err) return console.error(err)
     console.log('connected to db')
-    app.get('/login', (req,res) => {
+    app.get('/login', (req, res) => {
         res.sendFile(__dirname + '/login.html')
     })
 })
 
 
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
-// app.post('/login', (req, res) => {
-//     let user = req.body.user
-//     let pass = md5(req.body.pass)
-//     // search db using user and pass then return status code and required data
-// })
+app.get('/login', (req, res) => {
+    res.sendFile(__dirname + '/login.html')
+})
+
+app.post('/login', (req, res) => {
+    let user = req.body.user
+    let pass = md5(req.body.pass)
+    // search db using user and pass then return status code and required data
+
+    // test
+
+    res.send({msg: "received post req"})
+})
 
 // app.post('/signup', (req, res) => {
 //     let user = req.body.user
