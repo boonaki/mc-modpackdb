@@ -8,6 +8,8 @@ require('dotenv').config()
 
 const MongoClient = require('mongodb').MongoClient
 
+app.use(express.static('public'))
+
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     if (err) return console.error(err)
     console.log('connected to db')
