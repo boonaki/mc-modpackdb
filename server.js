@@ -27,30 +27,38 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
         let pass = md5(req.body.pass)
         // attempt to add user to db maybe check to see if user already exist
         // Primary key in mongodb?
-        let found = usersDB.find({ user: user })
-        /* 
-        if !found:
-            db.usersDB.insertOne(
-                { user: user, pass: pass }
-            )
-            login as newly created user
-        else: 
-            res.send error
-        */
+        usersDB.find({ user: user }).toArray()
+            .then((results) => {
+                console.log(results)
+                if (results.length < 1) {
+                    usersDB.insertOne({ user: user, pass: pass })
+                    // Login as newly created user here?
+                    res.send({ status: 200, msg: "Added user" })
+                } else {
+                    res.send({ status: 401, msg: "User already exists" })
+                }
+            })
     })
 
     app.post('/login', (req, res) => {
         let user = req.body.user
         let pass = md5(req.body.pass)
         // search db using user and pass then return status code and required data
-    
-        let found = usersDB.find({ user: user, pass: pass })
-        /* 
-        if found:
-            login as user
-        else: 
-            res.send error
-        */
+
+        usersDB.find({ user: user, pass: pass }).toArray()
+            .then((results) => {
+                console.log(results)
+                if (results.length === 1) {
+                    // Login as user here?
+                    res.send({ status: 200, msg: "Found user" })
+                } else {
+                    res.send({ status: 401, msg: "Incorrect username or password" })
+                }
+            })
+    })
+
+    app.get('/getall', (req, res) => {
+        usersDB.find().toArray().then(results => console.log(results))
     })
 })
 

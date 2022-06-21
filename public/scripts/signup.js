@@ -24,6 +24,6 @@ window.addEventListener("load", function () {
             .then((res) => {
                 console.log(res)
             })
-            .then(window.location.replace('/')) // return to homepage
+            // .then(window.location.replace('/')) // return to homepage
     })
 })
