@@ -5,11 +5,11 @@ const PORT = 8000
 const md5 = require("md5")
 
 require('dotenv').config()
-const connectionstring = `mongodb+srv://${process.env.USER}:${process.env.PASS}@cluster0.ufo9q.mongodb.net/?retryWrites=true&w=majority`
+// const connectionstring = `mongodb+srv://${process.env.USER}:${process.env.PASS}@cluster0.ufo9q.mongodb.net/?retryWrites=true&w=majority`
 
 const MongoClient = require('mongodb').MongoClient
 
-MongoClient.connect(connectionstring, (err, client) => {
+MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     if (err) return console.error(err)
     console.log('connected to db')
 })
