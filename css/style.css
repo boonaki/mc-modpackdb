@@ -1,0 +1,31 @@
+/*box model hack*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+nav{
+    width: 94%;
+    margin: 10px 0 0 3%;
+    height: 75px;
+    background: rgb(84, 84, 84);
+    border-radius: 7px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+#signup, #login{
+    cursor: pointer;
+}
