@@ -1,22 +1,24 @@
 const express = require('express')
 const app = express()
 const PORT = 8000
-
 const md5 = require("md5")
-
 require('dotenv').config()
-
 const MongoClient = require('mongodb').MongoClient
-
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
+
+//connect to db
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     if (err) return console.error(err)
     console.log('connected to db')
+    app.get('/login', (req,res) => {
+        res.sendFile(__dirname + '/login.html')
+    })
 })
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+
 
 app.get('/', (req,res) => {
     res.sendFile(__dirname + '/index.html')
