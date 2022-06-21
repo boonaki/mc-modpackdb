@@ -1,11 +1,15 @@
 const login = document.querySelector('login')
-const signup = document.querySelector('signup')
+const signup = document.querySelector('#signup')
 
-login.addEventListener('click', _ => {
+login.addEventListener('submit', (event) => {
+    event.preventDefault()
+
     let data = {
         user: 'admin',
         pass: 'password'
     }
+
+    console.log(data)
     
     fetch('/login', {
         method: 'POST',
