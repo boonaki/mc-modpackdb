@@ -29,3 +29,21 @@ a{
 #signup, #login{
     cursor: pointer;
 }
+
+#modPackEditor h2, #mpEditTitle{
+    margin: 10px 0;
+}
+
+#addModButton{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+input{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#addMod{
+    margin-top: 20px;
+}
