@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
+app.get('/modpackedit', (req,res) => {
+    res.sendFile(__dirname + '/public/pages/addmodpack.html')
+})
+
 //connect to db
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     if (err) return console.error(err)
