@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Modpack DB</title>
+        <link rel="stylesheet" href="../style.css">
+        <script type="text/javascript" src="../main.js" defer></script>
+    </head>
+    <body>
+        <h1 id="mpEditTitle">Modpack Editor</h1>
+        <section id="modPackEditor">
+            <h2>Modpack</h2>
+            <form>
+                <input type="text" placeholder="Add Modpack Name" name="mp_name">
+                <input type="text" placeholder="Add Modpack Link" name="mp_link">
+                <input type="text" placeholder="Add Modpack Version" name="mp_version">
+                <input type="text" placeholder="Add Minecraft Version" name="mc_version">
+            </form>
+            <h2>Mods</h2>
+            <span id="addModButton">Add Another Mod</span>
+            <section id="mods">
+                <form class="addMod">
+                    <input type="text" placeholder="Mod Name" name="mod_name">
+                    <input type="text" placeholder="Mod Version" name="mod_name">
+                    <input type="text" placeholder="Date Created" name="mod_date">
+                    <input type="text" placeholder="Mod author(s)" name="mod_author">
+                    <input type="text" placeholder="Mod link" name="mod_link">
+                </form>
+            </section>
+            <button type="submit">Submit</button>
+        </section>
+    </body>
+</html>

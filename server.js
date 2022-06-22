@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
+app.get('/modpackedit', (req,res) => {
+    res.sendFile(__dirname + '/public/pages/addmodpack.html')
+})
+
 //connect to db
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     if (err) return console.error(err)
@@ -29,11 +33,12 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     app.post('/signup', (req, res) => {
         let user = req.body.user
         let pass = md5(req.body.pass)
-        // attempt to add user to db maybe check to see if user already exist
         // Primary key in mongodb?
         usersDB.find({ user: user }).toArray()
             .then((results) => {
                 if (results.length < 1) {
+                    //add isAdmin to check if admin before allowing delete methods
+                    //allow user to delete their own entry
                     usersDB.insertOne({ user: user, pass: pass })
                     // Login as newly created user here?
                     res.send({ status: 200, msg: "Added user" })
