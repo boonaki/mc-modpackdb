@@ -7,10 +7,3 @@ addMod.addEventListener('click', _ => {
     let formClone = firstForm.cloneNode(true)
     modEditSection.appendChild(formClone)
 })
-
-// function duplicateForm(){
-//     let forms = modEditSection.getElementsByClassName('.addMod')
-//     let firstForm = forms[0]
-//     let formClone = firstForm.cloneNode(true)
-//     modEditSection.appendChild(formClone)
-// }
