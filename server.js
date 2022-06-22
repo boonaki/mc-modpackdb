@@ -67,7 +67,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     })
 
     app.get('/getall', (req, res) => {
-        usersDB.find().toArray().then(results => console.log(results))
+        usersDB.find().toArray().then(results => res.send({results}))
     })
 
     app.get('/test', authenticateToken, (req, res) => {
