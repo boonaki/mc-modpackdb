@@ -3,14 +3,15 @@ window.addEventListener("load", function () {
     const test = document.querySelector('#test')
     const logout = document.querySelector('#logout')
 
+    //put into cookies to save that they logged in
     let accessToken = ""
 
     login.addEventListener('submit', (event) => {
         // Stops the default submit action and allows us to perform our own aciton
         event.preventDefault()
 
-        // TODO: Check for accessToken and refreshToken cookies
-        if (accessToken === "") {
+        // TODO: Check for accessToken
+        if (!accessToken) {
 
             // Saves the data from the form into FD
             let FD = new FormData(login)
@@ -31,7 +32,8 @@ window.addEventListener("load", function () {
                 .then((res) => {
                     console.log(res, res.statusCode)
                     if (res.status == 200) {
-                        accessToken = res.accessToken // probably save as cookie or local storage or something
+                        document.cookie = res.accessToken //saves user access token as a cookie
+                        //accessToken = res.accessToken
                     }
                 })
             // .then(res => res.redirect('/')) // return to homepage
@@ -41,10 +43,11 @@ window.addEventListener("load", function () {
     })
 
     test.addEventListener('click', () => {
+        let temp = document.cookie
         fetch('/test', {
             method: 'GET',
             headers: {
-                "Authorization": "Bearer " + accessToken,
+                "Authorization": "Bearer " + temp,
                 "Content-type": "application/json"
             }
         })
