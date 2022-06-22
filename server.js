@@ -13,10 +13,6 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
-app.get('/modpackedit', (req,res) => {
-    res.sendFile(__dirname + '/public/pages/addmodpack.html')
-})
-
 //connect to db
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     if (err) return console.error(err)
@@ -66,8 +62,34 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
             })
     })
 
+    app.post('/editor', authenticateToken, (req, res) => {
+        if (req.user.name === 'admin') {
+            let mpName = req.body.name,
+                mpURL = req.body.url,
+                mpVer = req.body.mpVer,
+                mcVer = req.body.mcVer,
+                mods = req.body.mods
+
+            modDB.find({ name: mpName }).toArray()
+                .then((results) => {
+                    if (results.length < 1) {
+                        modDB.insertOne({
+                            name: mpName,
+                            url: mpURL,
+                            mpVer: mpVer,
+                            mcVer: mcVer,
+                            mods: mods
+                        })
+                        res.status(200)
+                    }
+                })
+        } else {
+            res.status(403)
+        }
+    })
+
     app.get('/getall', (req, res) => {
-        usersDB.find().toArray().then(results => res.send({results}))
+        usersDB.find().toArray().then(results => res.send({ results }))
     })
 
     app.get('/test', authenticateToken, (req, res) => {
