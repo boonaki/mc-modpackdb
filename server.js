@@ -63,7 +63,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     })
 
     app.post('/editor', authenticateToken, (req, res) => {
-        if (req.user.name === 'admin') {
+        if (req.user.name === 'admin' || req.user.name === 'josh') {
             let mpName = req.body.name,
                 mpURL = req.body.url,
                 mpVer = req.body.mpVer,

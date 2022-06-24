@@ -30,13 +30,13 @@ window.addEventListener("load", function () {
             })
                 .then(res => res.json())
                 .then((res) => {
-                    console.log(res, res.statusCode)
                     if (res.status == 200) {
-                        document.cookie = res.accessToken //saves user access token as a cookie
+                        document.cookie = `user=${res.accessToken}` //saves user access token as a cookie
+                        
                         //accessToken = res.accessToken
                     }
                 })
-            // .then(res => res.redirect('/')) // return to homepage
+                //.then(res => res.redirect('/')) // return to homepage
         } else {
             console.log("already logged in")
         }
@@ -58,6 +58,21 @@ window.addEventListener("load", function () {
     })
 
     logout.addEventListener('click', () => {
-        // delete access token cookie
-    })
+        let cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++){   
+            let spcook =  cookies[i].split("=");
+            deleteCookie(spcook[0]);
+        }
+        function deleteCookie(cookiename){
+            let d = new Date();
+            d.setDate(d.getDate() - 1);
+            let expires = ";expires="+d;
+            let name=cookiename;
+            //alert(name);
+            let value="";
+            document.cookie = name + "=" + value + expires + "; path=/pages";                    
+        }
+        console.log(document.cookie)
+        //window.location = ""; // TO REFRESH THE PAGE
+    })   
 })
