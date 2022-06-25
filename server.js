@@ -8,6 +8,7 @@ const MongoClient = require('mongodb').MongoClient
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
@@ -17,10 +18,27 @@ app.get('/', (req, res) => {
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     if (err) return console.error(err)
     console.log('connected to db')
-
+    
     const db = client.db('MC-Modpack')
+
     const usersDB = db.collection('Users')
     const modDB = db.collection('Modpack')
+    
+    
+
+    app.post('/info', (req,res) => {
+        console.log(req.body.cookie.split('=')[1])
+        //check if cookie is in body
+        if(req.body.cookie){
+            let userInfo = decryptToken(req.body.cookie.split('=')[1])
+            let renderInfo = { 'database' : modDB, 'userInfo' : userInfo }
+            res.render('index.ejs', { info : renderInfo })
+        }
+        //call decryptToken to decrypt accesstoken, store in userInfo variable
+        //grab modDB
+        //create new object with modDB info and userInfo
+        //render ejs with object
+    })
 
     app.get('/login', (req, res) => {
         res.sendFile(__dirname + '/login.html')
@@ -56,10 +74,15 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
                     const endUser = { name: user }
                     const accessToken = generateAccessToken(endUser)
                     res.send({ status: 200, accessToken: accessToken })
+                    //TODO: render ejs access token
                 } else {
                     res.send({ status: 401, msg: "Incorrect username or password" })
                 }
             })
+    })
+
+    app.get('/info', (req,res) => {
+        res.render('index.ejs', { userInfo : user })
     })
 
     app.post('/editor', authenticateToken, (req, res) => {
@@ -107,6 +130,13 @@ const authenticateToken = (req, res, next) => {
         if (err) return res.sendStatus(403)
         req.user = endUser
         next()
+    })
+}
+
+const decryptToken = (token) => {
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, endUser) => {
+        if (err) return console.error(err)
+        return endUser
     })
 }
 
