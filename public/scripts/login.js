@@ -32,22 +32,29 @@ window.addEventListener("load", function () {
                 .then((res) => {
                     if (res.status == 200) {
                         document.cookie = `user=${res.accessToken}` //saves user access token as a cookie
-                        
                         //accessToken = res.accessToken
                     }
                 })
-                //.then(res => res.redirect('/')) // return to homepage
+                .then(res => {
+                    console.log(document.cookie)
+                    if(!document.cookie){
+                        console.log('input user and pass')
+                    }else{
+                        window.location.replace('/pages/home.html')
+                    }
+                }) // returns to new homepage (not original page)
         } else {
             console.log("already logged in")
         }
     })
 
     test.addEventListener('click', () => {
-        let temp = document.cookie
+        let userToken = document.cookie.split('=')
+        // console.log(userToken)
         fetch('/test', {
             method: 'GET',
             headers: {
-                "Authorization": "Bearer " + temp,
+                "Authorization": "Bearer " + userToken[1],
                 "Content-type": "application/json"
             }
         })
@@ -55,9 +62,14 @@ window.addEventListener("load", function () {
             .then((res) => {
                 console.log(res)
             })
+            .catch(err => alert('not logged in'))
     })
 
     logout.addEventListener('click', () => {
+        if(!document.cookie){
+            alert('not logged in')
+            return
+        }
         let cookies = document.cookie.split(";");
         for (var i = 0; i < cookies.length; i++){   
             let spcook =  cookies[i].split("=");
@@ -72,7 +84,10 @@ window.addEventListener("load", function () {
             let value="";
             document.cookie = name + "=" + value + expires + "; path=/pages";                    
         }
-        console.log(document.cookie)
+        console.log('logged out')
+
+        //TODO: REFRESH PAGE ON LOGOUT
+        //location.reload();
         //window.location = ""; // TO REFRESH THE PAGE
     })   
 })
