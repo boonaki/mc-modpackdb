@@ -36,7 +36,14 @@ window.addEventListener("load", function () {
                         //accessToken = res.accessToken
                     }
                 })
-                .then(res => window.location.replace('/pages/home.html')) // returns to new homepage (not original page)
+                .then(res => {
+                    console.log(document.cookie)
+                    if(!document.cookie){
+                        console.log('input user and pass')
+                    }else{
+                        window.location.replace('/pages/home.html')
+                    }
+                }) // returns to new homepage (not original page)
         } else {
             console.log("already logged in")
         }
@@ -56,10 +63,14 @@ window.addEventListener("load", function () {
             .then((res) => {
                 console.log(res)
             })
-            .catch(err => console.log('not logged in'))
+            .catch(err => alert('not logged in'))
     })
 
     logout.addEventListener('click', () => {
+        if(!document.cookie){
+            alert('not logged in')
+            return
+        }
         let cookies = document.cookie.split(";");
         for (var i = 0; i < cookies.length; i++){   
             let spcook =  cookies[i].split("=");
