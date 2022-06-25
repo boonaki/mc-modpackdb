@@ -31,16 +31,15 @@ window.addEventListener("load", function () {
                 .then(res => res.json())
                 .then((res) => {
                     if (res.status == 200) {
-                        document.cookie = `user=${res.accessToken}` //saves user access token as a cookie
+                        document.cookie = `user=${res.accessToken};path=/` //saves user access token as a cookie
                         //accessToken = res.accessToken
                     }
                 })
                 .then(res => {
-                    console.log(document.cookie)
                     if(!document.cookie){
                         console.log('input user and pass')
                     }else{
-                        window.location.replace('/pages/home.html')
+                        window.location.replace('/')
                     }
                 }) // returns to new homepage (not original page)
         } else {
@@ -82,10 +81,9 @@ window.addEventListener("load", function () {
             let name=cookiename;
             //alert(name);
             let value="";
-            document.cookie = name + "=" + value + expires + "; path=/pages";                    
+            document.cookie = name + "=" + value + expires + "; path=/";                    
         }
         console.log('logged out')
-
         //TODO: REFRESH PAGE ON LOGOUT
         //location.reload();
         //window.location = ""; // TO REFRESH THE PAGE
