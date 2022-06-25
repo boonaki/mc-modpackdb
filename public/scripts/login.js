@@ -43,11 +43,11 @@ window.addEventListener("load", function () {
     })
 
     test.addEventListener('click', () => {
-        let temp = document.cookie
+        let userToken = document.cookie.split('=')
         fetch('/test', {
             method: 'GET',
             headers: {
-                "Authorization": "Bearer " + temp,
+                "Authorization": "Bearer " + userToken[1],
                 "Content-type": "application/json"
             }
         })
