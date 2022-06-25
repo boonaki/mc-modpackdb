@@ -36,7 +36,7 @@ window.addEventListener("load", function () {
                         //accessToken = res.accessToken
                     }
                 })
-                .then(res => window.location.replace('/')) // return to homepage
+                .then(res => window.location.replace('/pages/home.html')) // returns to new homepage (not original page)
         } else {
             console.log("already logged in")
         }
@@ -77,7 +77,7 @@ window.addEventListener("load", function () {
         console.log('logged out')
 
         //TODO: REFRESH PAGE ON LOGOUT
-        location.reload();
+        //location.reload();
         //window.location = ""; // TO REFRESH THE PAGE
     })   
 })
