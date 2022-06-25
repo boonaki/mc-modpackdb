@@ -97,6 +97,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     })
 })
 
+//Verifies user access token to make sure its real
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]

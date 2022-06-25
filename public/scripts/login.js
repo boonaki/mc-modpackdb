@@ -36,7 +36,7 @@ window.addEventListener("load", function () {
                         //accessToken = res.accessToken
                     }
                 })
-                //.then(res => res.redirect('/')) // return to homepage
+                .then(res => window.location.replace('/')) // return to homepage
         } else {
             console.log("already logged in")
         }
@@ -44,6 +44,7 @@ window.addEventListener("load", function () {
 
     test.addEventListener('click', () => {
         let userToken = document.cookie.split('=')
+        // console.log(userToken)
         fetch('/test', {
             method: 'GET',
             headers: {
@@ -55,6 +56,7 @@ window.addEventListener("load", function () {
             .then((res) => {
                 console.log(res)
             })
+            .catch(err => console.log('not logged in'))
     })
 
     logout.addEventListener('click', () => {
@@ -72,7 +74,10 @@ window.addEventListener("load", function () {
             let value="";
             document.cookie = name + "=" + value + expires + "; path=/pages";                    
         }
-        console.log(document.cookie)
+        console.log('logged out')
+
+        //TODO: REFRESH PAGE ON LOGOUT
+        location.reload();
         //window.location = ""; // TO REFRESH THE PAGE
     })   
 })
