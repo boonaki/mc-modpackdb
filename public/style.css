@@ -34,18 +34,71 @@ a{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-image: url(../assets/mcbg.png);
 }
 
 #loginBox{
-    background: rgba(158, 176, 153, 0.468);
+    /* background: rgb(207 201 178); */
     height: 350px;
     width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
-    border-radius: 10px;
+    background-color: #c6c6c6;
+    box-shadow: 8px 0 0 0 #555555,
+        0 8px 0 0 #555555,
+        4px 4px 0 0 #555555,
+        -8px 0 0 0 #e8e8e8,
+        0 -8px 0 0 #e8e8e8,
+        -4px -4px 0 0 #e8e8e8,
+        0 0 0 4px #b5b4b5,
+        4px 8px 0 0 #555,
+        8px 4px 0 0 #555,
+        -4px -8px 0 0 #e8e8e8,
+        -8px -4px 0 0 #e8e8e8,
+        8px -4px 0 0 #000,
+        4px -8px 0 0 #000,
+        -8px 4px 0 0 #000,
+        -4px 8px 0 0 #000,
+        -8px -8px 0 0 #000,
+        8px 8px 0 0 #000,
+        -12px 0 0 0 #000,
+        -12px -4px 0 0 #000,
+        12px 0 0 0 #000,
+        12px 4px 0 0 #000,
+        0 -12px 0 0 #000,
+        -4px -12px 0 0 #000,
+        0 12px 0 0 #000,
+        4px 12px 0 0 #000;
+    /* border: 1px solid black;
+    border-radius: 10px; */
+    /* background-color: #858585;
+    box-shadow: 8px 0 0 0 #555555,
+    0 8px 0 0 #555555,
+    4px 4px 0 0 #555555,
+    -8px 0 0 0 #bdbdbd,
+    0 -8px 0 0 #bdbdbd,
+    -4px -4px 0 0 #bdbdbd,
+    0 0 0 4px #b5b4b5,
+    4px 8px 0 0 #555,
+    8px 4px 0 0 #555,
+    -4px -8px 0 0 #bdbdbd,
+    -8px -4px 0 0 #bdbdbd,
+    8px -4px 0 0 #000,
+    4px -8px 0 0 #000,
+    -8px 4px 0 0 #000,
+    -4px 8px 0 0 #000,
+    -8px -8px 0 0 #000,
+    8px 8px 0 0 #000,
+    -12px 0 0 0 #000,
+    -12px -4px 0 0 #000,
+    12px 0 0 0 #000,
+    12px 4px 0 0 #000,
+    0 -12px 0 0 #000,
+    -4px -12px 0 0 #000,
+    0 12px 0 0 #000,
+    4px 12px 0 0 #000; */
 }
 #loginForm{
     display: flex;
@@ -55,6 +108,7 @@ a{
 #loginForm input{
     width: 100%;
     margin: 5px 0;
+    background: white;
 }
 #loginForm > button{
     border: 1px solid black;
@@ -64,20 +118,61 @@ a{
 }
 
 #test, #logout{
-    border: 1px solid black;
-    margin-top: 5px;
-    padding: 2% 0;
+    border: 2px solid black;
+    margin-top: 13px;
+    padding: 10px 0;
     width: 50%;
+    color: white;
+    transition: background .25s ease-in-out 0s;
+    transition: box-shadow .1s ease-in-out 0s;
+    background: #6d6d6d;
+    /* maybe switch to image? */
+    box-shadow: inset 4px 0 0 0 #aaaaaa,
+        inset 0 4px 0 0 #aaaaaa,
+        inset 2px 2px 0 0 #aaaaaa,
+        inset -4px 0 0 0 #565656,
+        inset 0 -4px 0 0 #565656,
+        inset -2px -2px 0 0 #565656,
+        inset 0 0 0 4px #585858,
+        inset 0 0 0 4px #585858,
+        inset 2px 4px 0 0 #555,
+        inset 4px 2px 0 0 #555,
+        inset -2px -4px 0 0 #585858,
+        inset -4px -2px 0 0 #585858;
 }
+#test:hover, #logout:hover{
+    background: #80a3dfa8;
+    box-shadow: inset 4px 0 0 0 #a4b4d0,
+    inset 0 4px 0 0 #a4b4d0,
+    inset 2px 2px 0 0 #a4b4d0,
+    inset -4px 0 0 0 #7489a5,
+    inset 0 -4px 0 0 #7489a5,
+    inset -2px -2px 0 0 #7489a5,
+    inset 0 0 0 4px #7489a5,
+    inset 0 0 0 4px #7489a5,
+    inset 2px 4px 0 0 #555,
+    inset 4px 2px 0 0 #555,
+    inset -2px -4px 0 0 #7489a5,
+    inset -4px -2px 0 0 #7489a5;
+}   
+/* 
+#565656
+#aaaaaa
+#585858
+*/
 #test{
     margin-top: 10px;
 }
 
 #continue{
-    border: 1px solid black;
+    border: 2px solid black;
     width: 200px;
     padding: 10px 0;
     margin-top: 15px;
+    transition: background .25s ease-in-out 0s;
+}
+#continue:hover{
+    background: white;
 }
 
 
