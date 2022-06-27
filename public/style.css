@@ -71,34 +71,6 @@ a{
         -4px -12px 0 0 #000,
         0 12px 0 0 #000,
         4px 12px 0 0 #000;
-    /* border: 1px solid black;
-    border-radius: 10px; */
-    /* background-color: #858585;
-    box-shadow: 8px 0 0 0 #555555,
-    0 8px 0 0 #555555,
-    4px 4px 0 0 #555555,
-    -8px 0 0 0 #bdbdbd,
-    0 -8px 0 0 #bdbdbd,
-    -4px -4px 0 0 #bdbdbd,
-    0 0 0 4px #b5b4b5,
-    4px 8px 0 0 #555,
-    8px 4px 0 0 #555,
-    -4px -8px 0 0 #bdbdbd,
-    -8px -4px 0 0 #bdbdbd,
-    8px -4px 0 0 #000,
-    4px -8px 0 0 #000,
-    -8px 4px 0 0 #000,
-    -4px 8px 0 0 #000,
-    -8px -8px 0 0 #000,
-    8px 8px 0 0 #000,
-    -12px 0 0 0 #000,
-    -12px -4px 0 0 #000,
-    12px 0 0 0 #000,
-    12px 4px 0 0 #000,
-    0 -12px 0 0 #000,
-    -4px -12px 0 0 #000,
-    0 12px 0 0 #000,
-    4px 12px 0 0 #000; */
 }
 #loginForm{
     display: flex;
@@ -172,7 +144,7 @@ a{
     transition: background .25s ease-in-out 0s;
 }
 #continue:hover{
-    background: white;
+    background: #80a3dfa8;
 }
 
 
