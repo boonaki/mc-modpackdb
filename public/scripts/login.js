@@ -39,7 +39,9 @@ window.addEventListener("load", function () {
                     if(!document.cookie){
                         console.log('input user and pass')
                     }else{
-                        window.location.replace('/')
+                        console.log('already logged in')
+                        // window.location.replace('')
+                        // res.render('index.ejs', { userInfo : document.cookie})
                     }
                 }) // returns to new homepage (not original page)
         } else {
