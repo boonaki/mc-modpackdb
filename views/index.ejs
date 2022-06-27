@@ -1,3 +1,4 @@
+<!-- EJS file -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,13 +7,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MCMPDB</title>
 		<link rel="stylesheet" href="style.css">
+        <script src="./scripts/index.js" defer></script>
     </head>
     <body>
         <nav>
             <span><a href="#" id="home">home</a></span>
             <span><a href="pages/addmodpack.html" id="modpacks">modpacks</a></span>
-            <span><a href="pages/signup.html" id="signup">sign-up</a></span>
-            <span><a href="pages/login.html" id="login"><%= info.userInfo %></a></span>
+            <span><a href="pages/signup.html" id="indexSignin">sign-in</a></span> 
+            <!-- TODO: change signup to logout button if cookie detected
+                       change user to userInfo if cookie detected
+            -->
+            <span><a href="pages/login.html" id="indexUserInfo">user</a></span>
         </nav>
         <h1>Minecraft Modpack Database</h1>
     </body>

@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-    const signup = document.getElementById('signup')
+    const signup = document.getElementById('signupForm')
 
     signup.addEventListener('submit', (event) => {
         // Stops the default submit action and allows us to perform our own aciton

@@ -10,9 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set('view engine', 'ejs')
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
-})
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + '/index.html')
+// })
 
 //connect to db
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
@@ -23,6 +23,10 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
 
     const usersDB = db.collection('Users')
     const modDB = db.collection('Modpack')
+
+    app.get('/', (req, res) => {
+        res.sendFile(__dirname + '/public/pages/signup.html')
+    })
     
     
 
@@ -81,9 +85,9 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
             })
     })
 
-    app.get('/info', (req,res) => {
-        res.render('index.ejs', { userInfo : user })
-    })
+    // app.get('/info', (req,res) => {
+    //     res.render('index.ejs', { userInfo : user })
+    // })
 
     app.post('/editor', authenticateToken, (req, res) => {
         if (req.user.name === 'admin' || req.user.name === 'josh') {
