@@ -134,6 +134,12 @@ a{
 }
 #signupForm + span{
     margin-top: 30px;
+}
+#redirectSignup{
+    color: black;
+}
+#redirectSignup:hover{
+    color: #80a3df;
 }   
 /* 
 #565656
