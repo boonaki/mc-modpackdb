@@ -26,7 +26,7 @@ a{
     text-decoration: none;
 }
 
-#signup, #login{
+#signup, #login, button{
     cursor: pointer;
 }
 
