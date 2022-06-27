@@ -35,6 +35,8 @@ a{
     justify-content: center;
     height: 100vh;
     background-image: url(../assets/mcbg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #loginBox{
@@ -144,7 +146,7 @@ a{
     transition: background .25s ease-in-out 0s;
 }
 #continue:hover{
-    background: #80a3dfa8;
+    background: #80a3df;
 }
 
 
