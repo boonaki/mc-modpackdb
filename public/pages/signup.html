@@ -5,14 +5,27 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>log-in</title>
+        <title>sign-up</title>
         <link rel="stylesheet" href="../style.css">
     </head>
-    <body>
-        <form id="signup">
+    <body id="signupBody">
+        <section id="signUpBox">
+            <h1>MC Modpack DB</h1>
+            <span>Please specify your username and password</span>
+            <span> or click the 'continue' button to proceed without signing up</span>
+            <form id="signupForm">
+                <input type="text" placeholder="user" name="user">
+                <input type="password" placeholder="pass" name="pass">
+                <button class="cursor" type="submit">sign-up</button>
+            </form>
+            <!-- <button id="test" class="cursor" type="button">Test</button> -->
+            <button id="hasAccount" class="cursor" type="button">Already Have An Account</button>
+        </section>
+        <button id="continue" class="cursor" type="button">Continue to DB</button>
+        <!-- <form id="signup">
             <input type="text" placeholder="user" name="user">
             <input type="password" placeholder="pass" name="pass">
             <button type="submit">Submit</button>
-        </form>
+        </form> -->
     </body>
 </html>

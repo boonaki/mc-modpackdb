@@ -28,7 +28,7 @@ a{
 /* LOGIN
 /*******************************************/
 
-#loginBody{
+#loginBody, #signupBody{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +39,7 @@ a{
     background-repeat: no-repeat;
 }
 
-#loginBox{
+#loginBox, #signUpBox{
     /* background: rgb(207 201 178); */
     height: 350px;
     width: 30%;
@@ -74,24 +74,24 @@ a{
         0 12px 0 0 #000,
         4px 12px 0 0 #000;
 }
-#loginForm{
+#loginForm, #signupForm{
     display: flex;
     flex-direction: column;
     width: 60%;
 }
-#loginForm input{
+#loginForm input, #signupForm input{
     width: 100%;
     margin: 5px 0;
     background: white;
 }
-#loginForm > button{
+#loginForm > button, #signupForm > button{
     border: 1px solid black;
     width: 40%;
     margin-top: 5px;
     padding: 2% 0;
 }
 
-#test, #logout{
+#test, #logout, #hasAccount{
     border: 2px solid black;
     margin-top: 13px;
     padding: 10px 0;
@@ -114,7 +114,7 @@ a{
         inset -2px -4px 0 0 #585858,
         inset -4px -2px 0 0 #585858;
 }
-#test:hover, #logout:hover{
+#test:hover, #logout:hover, #hasAccount:hover{
     background: #80a3dfa8;
     box-shadow: inset 4px 0 0 0 #a4b4d0,
     inset 0 4px 0 0 #a4b4d0,
