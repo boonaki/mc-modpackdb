@@ -81,9 +81,9 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
             })
     })
 
-    app.get('/info', (req,res) => {
-        res.render('index.ejs', { userInfo : user })
-    })
+    // app.get('/info', (req,res) => {
+    //     res.render('index.ejs', { userInfo : user })
+    // })
 
     app.post('/editor', authenticateToken, (req, res) => {
         if (req.user.name === 'admin' || req.user.name === 'josh') {
