@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-    const login = document.getElementById('login')
+    const login = document.getElementById('loginForm')
     const test = document.querySelector('#test')
     const logout = document.querySelector('#logout')
 

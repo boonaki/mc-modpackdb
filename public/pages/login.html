@@ -8,15 +8,18 @@
         <link rel="stylesheet" href="../style.css">
         <script src="../scripts/login.js" defer></script>
     </head>
-    <body>
-        <section id="loginbox">
-            <form id="login">
+    <body id="loginBody">
+        <section id="loginBox">
+            <h1>Log-in</h1>
+            <span>Please enter your username and password</span>
+            <form id="loginForm">
                 <input type="text" placeholder="user" name="user">
                 <input type="password" placeholder="pass" name="pass">
-                <button type="submit">Submit</button>
+                <button class="cursor" type="submit">Submit</button>
             </form>
-            <button id="test" type="button">Test</button>
-            <button id="logout" type="button">Logout</button>
+            <button id="test" class="cursor" type="button">Test</button>
+            <button id="logout" class="cursor" type="button">Logout</button>
         </section>
+        <button id="continue" class="cursor" type="button">Continue to DB</button>
     </body>
 </html>

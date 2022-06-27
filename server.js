@@ -25,7 +25,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     const modDB = db.collection('Modpack')
 
     app.get('/', (req, res) => {
-        res.sendFile(__dirname + '/public/pages/login.html')
+        res.sendFile(__dirname + '/public/pages/signup.html')
     })
     
     

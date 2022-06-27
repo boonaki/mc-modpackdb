@@ -1,4 +1,4 @@
-/*box model hack*/
+/*base box model styling*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,6 +8,82 @@
     vertical-align: baseline;
     background: transparent;
 }
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+
+/*CURSOR*/
+.cursor{
+    cursor: pointer;
+}
+
+/******************************************
+/* LOGIN
+/*******************************************/
+
+#loginBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#loginBox{
+    background: rgba(158, 176, 153, 0.468);
+    height: 350px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+#loginForm input{
+    width: 100%;
+    margin: 5px 0;
+}
+#loginForm > button{
+    border: 1px solid black;
+    width: 40%;
+    margin-top: 5px;
+    padding: 2% 0;
+}
+
+#test, #logout{
+    border: 1px solid black;
+    margin-top: 5px;
+    padding: 2% 0;
+    width: 50%;
+}
+#test{
+    margin-top: 10px;
+}
+
+#continue{
+    border: 1px solid black;
+    width: 200px;
+    padding: 10px 0;
+    margin-top: 15px;
+}
+
+
+/******************************************
+/* MODPACK EDITOR
+/*******************************************/
 
 nav{
     width: 94%;
@@ -19,15 +95,6 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-a{
-    color: white;
-    text-decoration: none;
-}
-
-#signup, #login, button{
-    cursor: pointer;
 }
 
 #modPackEditor h2, #mpEditTitle{
