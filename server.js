@@ -30,18 +30,29 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     
     
 
-    app.post('/info', (req,res) => {
-        console.log(req.body.cookie.split('=')[1])
+    app.get('/info', (req,res) => {
+        // console.log(req.body.cookie.split('=')[1])
         //check if cookie is in body
-        if(req.body.cookie){
-            let userInfo = decryptToken(req.body.cookie.split('=')[1])
-            let renderInfo = { 'database' : modDB, 'userInfo' : userInfo }
-            res.render('index.ejs', { info : renderInfo })
-        }
+        // let userInfo = ""
+        // if(req.body.cookie){
+        //     userInfo = decryptToken(req.body.cookie.split('=')[1])
+        // let renderInfo = { 'database' : results, 'userInfo' : userInfo }
+        // }
+
+        modDB.find().toArray()
+            .then((results) => {
+                let renderInfo = { 'database' : results }
+                res.render('index.ejs', { info : renderInfo })
+            })
         //call decryptToken to decrypt accesstoken, store in userInfo variable
         //grab modDB
         //create new object with modDB info and userInfo
         //render ejs with object
+    })
+
+    app.post('/info', (req, res) => {
+        let userInfo = decryptToken(req.body.cookie.split('=')[1])
+        res.send({user: userInfo})
     })
 
     app.get('/login', (req, res) => {
@@ -127,7 +138,8 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
 //Verifies user access token to make sure its real
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
+    let token = authHeader && authHeader.split(' ')[1]
+    token = token.split('=')[1]
     if (token == null) return res.sendStatus(401)
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, endUser) => {
@@ -138,10 +150,12 @@ const authenticateToken = (req, res, next) => {
 }
 
 const decryptToken = (token) => {
+    let result
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, endUser) => {
         if (err) return console.error(err)
-        return endUser
+        result = endUser
     })
+    return result
 }
 
 const generateAccessToken = (user) => {
