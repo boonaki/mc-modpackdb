@@ -17,8 +17,20 @@
             <!-- TODO: change signup to logout button if cookie detected
                        change user to userInfo if cookie detected
             -->
-            <span><a href="pages/login.html" id="indexUserInfo">user</a></span>
+            <span><a href="pages/login.html" id="indexUserInfo">User name here</a></span>
         </nav>
         <h1>Minecraft Modpack Database</h1>
+        <ul>
+            <% for(var i = 0; i < info.database.length; i++) {%>
+                <li class="modPack">
+                    <span><%= info.database[i].name %> :</span>
+                    <% for(var j = 0; j < info.database[i].mods.length; j++) {%>
+                        <li class="modList">
+                            <span><%= info.database[i].mods[j].modName %></span>
+                        </li>
+                    <% } %>
+                </li>
+            <% } %>
+        </ul>
     </body>
 </html>
