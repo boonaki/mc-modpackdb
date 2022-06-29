@@ -32,7 +32,10 @@ window.addEventListener("load", function () {
                 .then((res) => {
                     if (res.status == 200) {
                         document.cookie = `user=${res.accessToken};path=/` //saves user access token as a cookie
+                        window.location = '/info'
                         //accessToken = res.accessToken
+                    } else if (res.status == 401) {
+                        this.alert(res.msg)
                     }
                 })
                 .then(res => {
@@ -43,7 +46,7 @@ window.addEventListener("load", function () {
                         // window.location.replace('')
                         // res.render('index.ejs', { userInfo : document.cookie})
                     }
-                }) // returns to new homepage (not original page)
+                })// returns to new homepage (not original page)
         } else {
             console.log("already logged in")
         }
