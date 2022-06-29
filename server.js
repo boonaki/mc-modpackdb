@@ -72,7 +72,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
                     // Login as newly created user here?
                     res.send({ status: 200, msg: "Added user" })
                 } else {
-                    res.send({ status: 401, msg: "User already exists" })
+                    res.send({ status: 401, msg: "Username is taken" })
                 }
             })
     })
