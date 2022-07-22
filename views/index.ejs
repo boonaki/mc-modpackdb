@@ -12,30 +12,42 @@
     <body>
         <nav>
             <span><a href="#" id="home">home</a></span>
-            <span><a href="pages/addmodpack.html" id="modpacks">modpacks</a></span>
-            <span><a href="pages/signup.html" id="indexSignin">sign-in</a></span> 
-            <!-- TODO: change signup to logout button if cookie detected
-                       change user to userInfo if cookie detected
-            -->
+            <!-- <span><a href="pages/signup.html" id="indexSignin">sign-in</a></span>  -->
+
             <!-- <span><a href="pages/login.html" id="indexUserInfo">User name here</a></span> -->
-            <select name="indexUserInfo" id="indexUserInfo">
-                <option value="userInfo" selected>User Info</option>
+            <!-- <select name="indexUserInfo" id="indexUserInfo">
+                <option value="userName" id="userName">User</option>
                 <option value="Logout"><a id="logout">Logout</a></option>
-                <option value="Add Modpack"><a href="#">Add modpack</a></option>
-            </select>
+                <option value="Add Modpack"><a href="pages/addmodpack.html">Add modpack</a></option>
+            </select> -->
+
+            <!-- TODO: Change logout to sign up if no username detected -->
+            <div class="dropdown">
+                <span class="dropbtn">USER</span>
+                <div class="dropdown-content">
+                  <a href="#" id="logoutEJS">Logout</a>
+                  <a href="/" id="loginEJS" class="hidden">login</a>
+                  <a href="#">Add Modpack</a>
+                  <a href="pages/addmodpack.html">Manage Account</a>
+                </div>
+            </div>
         </nav>
-        <h1>Minecraft Modpack Database</h1>
-        <ul>
-            <% for(var i = 0; i < info.database.length; i++) {%>
-                <li class="modPack">
-                    <span><%= info.database[i].name %> :</span>
-                    <% for(var j = 0; j < info.database[i].mods.length; j++) {%>
-                        <li class="modList">
-                            <span><%= info.database[i].mods[j].modName %></span>
-                        </li>
-                    <% } %>
-                </li>
-            <% } %>
-        </ul>
+        <div id="hero">
+            <h1>Minecraft Modpack Database</h1>
+            <ul id="modPackNames">
+                <% for(var i = 0; i < info.database.length; i++) {%>
+                    <li class="modPack">
+                        <span><%= info.database[i].name %> :</span>
+
+                        <!-- <% for(var j = 0; j < info.database[i].mods.length; j++) {%>
+                            <li class="modList">
+                                <span><%= info.database[i].mods[j].modName %></span>
+                            </li>
+                        <% } %> -->
+
+                    </li>
+                <% } %>
+            </ul>
+        </div>
     </body>
 </html>
