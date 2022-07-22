@@ -179,6 +179,14 @@ a{
 /******************************************
 /* Main Page
 /*******************************************/
+#indexHTML{
+    background: url(./assets/mcbg.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .dropdown .hidden{
     display: none;
 }
@@ -189,10 +197,35 @@ nav > span{
 }
 
 #hero{
-    width: 80%;
-    height: 70vh;
-    margin: 0 10%;
-    background: orange;
+    width: 90%;
+    margin: 0 5%;
+    height: 800px;
+    /* background: #c1bcb1; */
+    background: #659157;
+}
+#searchBar input{
+    background: white;
+    width: 90%;
+    margin: 0 5%;
+    padding: 10px 5px;
+}
+
+#modPackNames{
+    border: 1px solid black;
+    background: #80a3df;
+    /* border-radius: 10px; */
+    height: 80%;
+    margin: 20px 5%;
+}
+.modPack{
+    list-style: none;
+    padding: 20px 10px;
+    font-size: 20px;
+    background: white;
+    border-bottom: 1px solid black;
+}
+.modPack:last-child{
+    border-bottom: none;
 }
 
 .dropbtn {
@@ -239,7 +272,7 @@ nav > span{
 
 nav{
     width: 94%;
-    margin: 10px 0 0 3%;
+    margin: 10px 0 10px 3%;
     height: 75px;
     background: rgb(84, 84, 84);
     border-radius: 7px;

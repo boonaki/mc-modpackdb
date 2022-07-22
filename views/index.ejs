@@ -1,6 +1,6 @@
 <!-- EJS file -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="indexHTML">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,8 +23,12 @@
                 </div>
             </div>
         </nav>
+        <!-- <img id="bgImg" src="./assets/mcbg.png" alt="bg"> -->
         <div id="hero">
             <h1>Minecraft Modpack Database</h1>
+            <div id="searchBar">
+                <input type="search" placeholder="search for a modpack" name="searchModPack">
+            </div>
             <ul id="modPackNames">
                 <% for(var i = 0; i < info.database.length; i++) {%>
                     <li class="modPack">
