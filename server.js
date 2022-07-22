@@ -3,6 +3,7 @@ const app = express()
 const PORT = 8000
 const md5 = require("md5")
 const jwt = require('jsonwebtoken')
+const { render } = require('ejs')
 require('dotenv').config()
 const MongoClient = require('mongodb').MongoClient
 app.use(express.static('public'))
@@ -42,6 +43,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
         modDB.find().toArray()
             .then((results) => {
                 let renderInfo = { 'database' : results }
+                console.log(renderInfo)
                 res.render('index.ejs', { info : renderInfo })
             })
         //call decryptToken to decrypt accesstoken, store in userInfo variable

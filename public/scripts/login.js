@@ -32,6 +32,7 @@ window.addEventListener("load", function () {
                 .then((res) => {
                     if (res.status == 200) {
                         document.cookie = `user=${res.accessToken};path=/` //saves user access token as a cookie
+                        window.location = '/info'
                         //accessToken = res.accessToken
                     }
                 })

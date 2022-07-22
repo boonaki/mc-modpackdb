@@ -19,7 +19,7 @@
                     <a href="pages/addmodpack.html">Add Modpack</a>
                     <a href="#">Manage Account</a>
                     <a href="#" id="logoutEJS">Logout</a>
-                    <a href="/" id="loginEJS" class="hidden">login</a>
+                    <a href="pages/login.html" id="loginEJS" class="hidden">login</a>
                 </div>
             </div>
         </nav>
@@ -28,8 +28,10 @@
             <ul id="modPackNames">
                 <% for(var i = 0; i < info.database.length; i++) {%>
                     <li class="modPack">
-                        <span><%= info.database[i].name %> :</span>
-
+                        <span><%= info.database[i].name %> |</span>
+                        <span><%= info.database[i].mpVer %> |</span>
+                        <span><%= info.database[i].mcVer %></span>
+                        
                         <!-- <% for(var j = 0; j < info.database[i].mods.length; j++) {%>
                             <li class="modList">
                                 <span><%= info.database[i].mods[j].modName %></span>
