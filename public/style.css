@@ -183,6 +183,11 @@ a{
     display: none;
 }
 
+nav > span{
+    width: 160px;
+    text-align: center;
+}
+
 #hero{
     width: 80%;
     height: 70vh;
@@ -264,4 +269,9 @@ input{
 
 .addMod{
     margin-top: 5px;
+}
+
+#return a{
+    color: black;
+    border: 1px solid black;
 }

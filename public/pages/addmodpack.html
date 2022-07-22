@@ -13,10 +13,10 @@
         <section id="modPackEditor">
             <h2>Modpack</h2>
             <form class="submitMod">
-                <input type="text" placeholder="Add Modpack Name" name="mp_name">
-                <input type="text" placeholder="Add Modpack Link" name="mp_link">
-                <input type="text" placeholder="Add Modpack Version" name="mp_version">
-                <input type="text" placeholder="Add Minecraft Version" name="mc_version">
+                <input type="text" placeholder="Add Modpack Name" name="mp_name" required>
+                <input type="text" placeholder="Add Modpack Link" name="mp_link" required>
+                <input type="text" placeholder="Add Modpack Version" name="mp_version" required>
+                <input type="text" placeholder="Add Minecraft Version" name="mc_version" required>
             </form>
             <h2>Mods</h2>
             <span id="addModButton">Add Another Mod</span>
@@ -30,6 +30,11 @@
                 </form>
             </section>
             <button id="submitModBtn" type="submit">Submit</button>
+
+            <span id="return"><a href="/info">go back home</a></span>
+
+            <!-- TODO: VIEW SUBMISSION, AVAILABLE AFTER SUBMISSION -->
+            <!-- <span>View Submission</span> -->
         </section>
     </body>
 </html>
