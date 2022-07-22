@@ -151,15 +151,30 @@ a{
 }
 
 #continue{
+    margin-top: 30px;
+}
+
+#continue a{
+    padding: 10px 30px;
+    border: 2px solid black;
+    transition: background .25s ease-in-out 0s;
+}
+#continue a:hover{
+    background: #80a3df;
+}
+
+/* #continue a{
+    padding: 10px 0;
+    width: 200px;
     border: 2px solid black;
     width: 200px;
     padding: 10px 0;
     margin-top: 15px;
     transition: background .25s ease-in-out 0s;
 }
-#continue:hover{
+#continue a:hover{
     background: #80a3df;
-}
+} */
 
 
 /******************************************
