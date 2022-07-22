@@ -12,7 +12,7 @@ if (document.cookie) {
     })
         .then(res => res.json())
         .then((res) => {
-            document.getElementById('indexUserInfo').innerHTML = res.user.name
+            // document.getElementById('indexUserInfo').innerHTML = res.user.name
         })
 }
 
