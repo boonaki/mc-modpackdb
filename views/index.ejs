@@ -1,6 +1,6 @@
 <!-- EJS file -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="indexHTML">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,25 +12,40 @@
     <body>
         <nav>
             <span><a href="#" id="home">home</a></span>
-            <span><a href="pages/addmodpack.html" id="modpacks">modpacks</a></span>
-            <span><a href="pages/signup.html" id="indexSignin">sign-in</a></span> 
-            <!-- TODO: change signup to logout button if cookie detected
-                       change user to userInfo if cookie detected
-            -->
-            <span><a href="pages/login.html" id="indexUserInfo">User name here</a></span>
+            <span>MCMODPACKDB</span>
+            <div class="dropdown">
+                <span class="dropbtn">USER</span>
+                <div class="dropdown-content">
+                    <a href="pages/addmodpack.html">Add Modpack</a>
+                    <a href="#">Manage Account</a>
+                    <a href="#" id="logoutEJS">Logout</a>
+                    <a href="pages/login.html" id="loginEJS" class="hidden">login</a>
+                </div>
+            </div>
         </nav>
-        <h1>Minecraft Modpack Database</h1>
-        <ul>
-            <% for(var i = 0; i < info.database.length; i++) {%>
-                <li class="modPack">
-                    <span><%= info.database[i].name %> :</span>
-                    <% for(var j = 0; j < info.database[i].mods.length; j++) {%>
-                        <li class="modList">
-                            <span><%= info.database[i].mods[j].modName %></span>
-                        </li>
-                    <% } %>
-                </li>
-            <% } %>
-        </ul>
+        <!-- <img id="bgImg" src="./assets/mcbg.png" alt="bg"> -->
+        <div id="hero">
+            <h1>Minecraft Modpack Database</h1>
+            <div id="searchBars">
+                <input type="search" placeholder="search for a modpack..." name="searchModPack">
+                <input type="search" placeholder="search for a mod..." name="searchMod">
+            </div>
+            <ul id="modPackNames">
+                <% for(var i = 0; i < info.database.length; i++) {%>
+                    <li class="modPack">
+                        <span><%= info.database[i].name %> |</span>
+                        <span><%= info.database[i].mpVer %> |</span>
+                        <span><%= info.database[i].mcVer %></span>
+                        
+                        <!-- <% for(var j = 0; j < info.database[i].mods.length; j++) {%>
+                            <li class="modList">
+                                <span><%= info.database[i].mods[j].modName %></span>
+                            </li>
+                        <% } %> -->
+
+                    </li>
+                <% } %>
+            </ul>
+        </div>
     </body>
 </html>

@@ -151,24 +151,165 @@ a{
 }
 
 #continue{
+    margin-top: 30px;
+}
+
+#continue a{
+    padding: 10px 30px;
+    border: 2px solid black;
+    transition: background .25s ease-in-out 0s;
+}
+#continue a:hover{
+    background: #80a3df;
+}
+
+/* #continue a{
+    padding: 10px 0;
+    width: 200px;
     border: 2px solid black;
     width: 200px;
     padding: 10px 0;
     margin-top: 15px;
     transition: background .25s ease-in-out 0s;
 }
-#continue:hover{
+#continue a:hover{
     background: #80a3df;
+} */
+
+/******************************************
+/* Main Page
+/*******************************************/
+#indexHTML{
+    background: url(./assets/mcbg.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
+.dropdown .hidden{
+    display: none;
+}
+
+nav > span{
+    width: 160px;
+    text-align: center;
+}
+
+#hero{
+    width: 90%;
+    margin: 40px 5% 0 5%;
+    padding: 10px 0 100px 0;
+    /* background: #c1bcb1;
+    background: #659157; */
+    background-color: #c6c6c6;
+    box-shadow: 8px 0 0 0 #555555,
+        0 8px 0 0 #555555,
+        4px 4px 0 0 #555555,
+        -8px 0 0 0 #e8e8e8,
+        0 -8px 0 0 #e8e8e8,
+        -4px -4px 0 0 #e8e8e8,
+        0 0 0 4px #b5b4b5,
+        4px 8px 0 0 #555,
+        8px 4px 0 0 #555,
+        -4px -8px 0 0 #e8e8e8,
+        -8px -4px 0 0 #e8e8e8,
+        8px -4px 0 0 #000,
+        4px -8px 0 0 #000,
+        -8px 4px 0 0 #000,
+        -4px 8px 0 0 #000,
+        -8px -8px 0 0 #000,
+        8px 8px 0 0 #000,
+        -12px 0 0 0 #000,
+        -12px -4px 0 0 #000,
+        12px 0 0 0 #000,
+        12px 4px 0 0 #000,
+        0 -12px 0 0 #000,
+        -4px -12px 0 0 #000,
+        0 12px 0 0 #000,
+        4px 12px 0 0 #000;
+}
+#searchBars{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#searchBars input{
+    background: white;
+    width: 40%;
+    padding: 10px 5px;
+    margin-bottom: 5px;
+}
+
+#modPackNames{
+    border: 1px solid black;
+    background: #585f6a;
+    /* border-radius: 10px; */
+    height: 600px;
+    margin: 0 5%;
+}
+.modPack{
+    list-style: none;
+    padding: 20px 10px;
+    font-size: 20px;
+    background: white;
+    cursor: pointer;
+    transition: transform .1s linear;
+    -webkit-transition: transform .1s linear;
+    -moz-transition: transform .1s linear;
+    -o-transition: transform .1s linear;
+}
+.modPack:hover{
+    transform: scale(1.025);
+    border: 1px solid black;
+}
+
+.dropbtn {
+    color: white;
+    border: 1px solid white;
+    padding: 16px 0;
+    width: 160px;
+    text-align: center;
+    font-size: 16px;
+}
+.dropdown {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    margin-top: 50px;
+    text-align: end;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #80a3df}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {border: 1px solid white}
 
 /******************************************
 /* MODPACK EDITOR
 /*******************************************/
 
 nav{
-    width: 94%;
-    margin: 10px 0 0 3%;
+    width: 100%;
+    margin: 10px 0;
     height: 75px;
     background: rgb(84, 84, 84);
     border-radius: 7px;
@@ -198,4 +339,9 @@ input{
 
 .addMod{
     margin-top: 5px;
+}
+
+#return a{
+    color: black;
+    border: 1px solid black;
 }
