@@ -198,34 +198,71 @@ nav > span{
 
 #hero{
     width: 90%;
-    margin: 0 5%;
-    height: 800px;
-    /* background: #c1bcb1; */
-    background: #659157;
+    margin: 40px 5% 0 5%;
+    padding: 10px 0 100px 0;
+    /* background: #c1bcb1;
+    background: #659157; */
+    background-color: #c6c6c6;
+    box-shadow: 8px 0 0 0 #555555,
+        0 8px 0 0 #555555,
+        4px 4px 0 0 #555555,
+        -8px 0 0 0 #e8e8e8,
+        0 -8px 0 0 #e8e8e8,
+        -4px -4px 0 0 #e8e8e8,
+        0 0 0 4px #b5b4b5,
+        4px 8px 0 0 #555,
+        8px 4px 0 0 #555,
+        -4px -8px 0 0 #e8e8e8,
+        -8px -4px 0 0 #e8e8e8,
+        8px -4px 0 0 #000,
+        4px -8px 0 0 #000,
+        -8px 4px 0 0 #000,
+        -4px 8px 0 0 #000,
+        -8px -8px 0 0 #000,
+        8px 8px 0 0 #000,
+        -12px 0 0 0 #000,
+        -12px -4px 0 0 #000,
+        12px 0 0 0 #000,
+        12px 4px 0 0 #000,
+        0 -12px 0 0 #000,
+        -4px -12px 0 0 #000,
+        0 12px 0 0 #000,
+        4px 12px 0 0 #000;
 }
-#searchBar input{
+#searchBars{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#searchBars input{
     background: white;
-    width: 90%;
-    margin: 0 5%;
+    width: 40%;
     padding: 10px 5px;
+    margin-bottom: 5px;
 }
 
 #modPackNames{
     border: 1px solid black;
-    background: #80a3df;
+    background: #585f6a;
     /* border-radius: 10px; */
-    height: 80%;
-    margin: 20px 5%;
+    height: 600px;
+    margin: 0 5%;
 }
 .modPack{
     list-style: none;
     padding: 20px 10px;
     font-size: 20px;
     background: white;
-    border-bottom: 1px solid black;
+    cursor: pointer;
+    transition: transform .1s linear;
+    -webkit-transition: transform .1s linear;
+    -moz-transition: transform .1s linear;
+    -o-transition: transform .1s linear;
 }
-.modPack:last-child{
-    border-bottom: none;
+.modPack:hover{
+    transform: scale(1.025);
+    border: 1px solid black;
 }
 
 .dropbtn {
@@ -271,8 +308,8 @@ nav > span{
 /*******************************************/
 
 nav{
-    width: 94%;
-    margin: 10px 0 10px 3%;
+    width: 100%;
+    margin: 10px 0;
     height: 75px;
     background: rgb(84, 84, 84);
     border-radius: 7px;
