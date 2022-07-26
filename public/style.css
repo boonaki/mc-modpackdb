@@ -322,7 +322,7 @@ nav > span{
 .dropdown:hover .dropbtn {border: 1px solid white}
 
 
-#expanded{
+.expanded{
     /* background: #1a1a1ad9;
     color: white; */
     background-color: #c6c6c6;
@@ -403,7 +403,7 @@ nav > span{
     margin-left: 100px;
 } */
 
-#modsUL{
+.modsUL{
     border: 1px solid black;
     background: #55575a;
     color: black;
@@ -411,7 +411,7 @@ nav > span{
     height: 600px;
     /* margin: 0 5%; */
 }
-#modsUL li{
+.modsUL li{
     list-style: none;
     padding: 20px 10px;
     font-size: 15px;
@@ -421,7 +421,7 @@ nav > span{
     justify-content: space-evenly;
     align-items: center;
 }
-#modsUL span{
+.modsUL span{
     width: 150px;
 }
 .modsLi svg{
