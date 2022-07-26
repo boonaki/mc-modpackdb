@@ -185,6 +185,7 @@ a{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: 'Noto Sans', 'sans-serif';
 }
 
 .dropdown .hidden{
@@ -229,10 +230,15 @@ nav > span{
         0 12px 0 0 #000,
         4px 12px 0 0 #000;
 }
+#hero h1{
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
 #searchBars{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: 10px 0;
 }
 
 #searchBars input{
@@ -349,13 +355,14 @@ nav > span{
     margin-top: 50px;
     width: 70%;
     margin: 50px 15%;
-    padding: 15px 10% 45px 10%;
+    padding: 25px 10% 45px 10%;
 }
 
 .general{
     display: flex;
     flex-direction: row;
     /* margin: 0 5%; */
+    margin-bottom: 15px;
 }
 .general > img{
     min-height: 200px;
@@ -364,6 +371,18 @@ nav > span{
 .generalText{
     width: 100%;
 }
+.description{
+    margin-top: 20px;
+    word-break: break-word;
+}
+.generalText > h2{
+    margin-bottom: 5px;
+    font-size: 40px;
+}
+.generalText > div{
+    display: flex;
+    justify-content: space-between;
+}   
 
 .labels{
     display: flex;
@@ -373,11 +392,12 @@ nav > span{
 }
 .labels > span{
     width: 150px;
+    font-size: 20px;
     /* padding: 0 10px; */
 }
-.authors, .gameVersion, .recentUpdateDate{
+/* .authors, .gameVersion, .recentUpdateDate{
     margin-left: 100px;
-}
+} */
 
 #modsUL{
     border: 1px solid black;

@@ -6,6 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MCMPDB</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="style.css">
         <script src="./scripts/index.js" defer></script>
     </head>
@@ -19,7 +22,7 @@
                     <a href="pages/addmodpack.html">Add Modpack</a>
                     <a href="#">Manage Account</a>
                     <a href="#" id="logoutEJS">Logout</a>
-                    <a href="pages/login.html" id="loginEJS" class="hidden">login</a>
+                    <a href="pages/login.html" id="loginEJS" class="hidden">Login</a>
                 </div>
             </div>
         </nav>
@@ -28,7 +31,6 @@
             <h1>Minecraft Community Modpacks</h1>
             <div id="searchBars">
                 <input type="search" placeholder="search for a modpack..." name="searchModPack">
-                <input type="search" placeholder="search for a mod..." name="searchMod">
             </div>
             <ul id="modPackNames">
                 <% for(var i = 0; i < info.database.length; i++) {%>
@@ -61,16 +63,18 @@
                 <img src="#" alt="modicon">
                 <div class="generalText">
                     <h2>modpack name</h2>
-                    <span>date created</span>
-                    <span class="recentUpdateDate">latest update</span>
-                    <span class="gameVersion">game version:</span>
-                    <span class="authors">author(s)</span>
-                    <p class="description">descriptiondescriptiondescription</p>
+                    <div>
+                        <span>date created</span>
+                        <span class="recentUpdateDate">latest update</span>
+                        <span class="gameVersion">game version:</span>
+                        <span class="authors">author(s)</span>
+                    </div>
+                    <p class="description">description:</br>descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription</p>
                 </div>
             </section>
             <section class="labels">
                 <span>Mod Name</span>
-                <span>Mod Creators</span>
+                <span>Mod Author(s)</span>
                 <span>Game Version</span>
                 <span>Latest Update</span>
             </section>
