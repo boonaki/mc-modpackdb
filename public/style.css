@@ -234,18 +234,16 @@ nav > span{
     text-align: center;
     margin: 10px 0 20px 0;
 }
-#searchBars{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 10px 0;
-}
 
+#searchBars{
+    margin-bottom: 20px;
+}
 #searchBars input{
     background: white;
     width: 40%;
     padding: 10px 5px;
-    margin-bottom: 5px;
+    margin: 0 30%;
+    font-size: 16px;
 }
 
 #modPackNames{
@@ -268,6 +266,9 @@ nav > span{
     -webkit-transition: transform .1s linear;
     -moz-transition: transform .1s linear;
     -o-transition: transform .1s linear; */
+}
+.viewModPack, .mpInfo{
+    /* font-weight: 200; */
 }
 /* .modPack:hover{
     transform: scale(1.025);
@@ -389,6 +390,7 @@ nav > span{
     flex-direction: row;
     justify-content: space-between;
     padding: 0 10px;
+    margin-bottom: 5px;
 }
 .labels > span{
     width: 150px;
@@ -410,7 +412,7 @@ nav > span{
 #modsUL li{
     list-style: none;
     padding: 20px 10px;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 3px;
     background: white;
     display: flex;
@@ -419,6 +421,12 @@ nav > span{
 }
 #modsUL span{
     width: 150px;
+}
+.modsLi svg{
+    height: 10px;
+    width: 10px;
+    fill: black;
+    stroke: black;
 }
 /******************************************
 /* MODPACK EDITOR
@@ -429,7 +437,6 @@ nav{
     margin: 10px 0;
     height: 75px;
     background: rgb(84, 84, 84);
-    border-radius: 7px;
     color: white;
     display: flex;
     justify-content: space-evenly;
