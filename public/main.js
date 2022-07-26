@@ -19,7 +19,8 @@ submitMod.addEventListener('click', (event) => {
     let mpName = '',
         mpURL = '',
         mpVer = '',
-        mcVer = ''
+        mcVer = '',
+        mpDate = ''
 
     let mods = []
 
@@ -27,21 +28,19 @@ submitMod.addEventListener('click', (event) => {
         let FD = new FormData(e)
         if (FD.get('mp_name') !== null) { // Modpack form
             mpName = FD.get('mp_name')
+            mpAuthor = FD.get('mp_author')
             mpURL = FD.get('mp_link')
             mpVer = FD.get('mp_version')
             mcVer = FD.get('mc_version')
+            mpDate = FD.get('mp_date')
         } else { // Mod form
             let temp = {
                 modName: '',
-                modVer: '',
-                modDate: '',
                 modAuthor: '',
                 modURL: ''
             }
 
             temp.modName = FD.get('mod_name')
-            temp.modVer = FD.get('mod_version')
-            temp.modDate = FD.get('mod_date')
             temp.modAuthor = FD.get('mod_author')
             temp.modURL = FD.get('mod_link')
 
@@ -52,9 +51,11 @@ submitMod.addEventListener('click', (event) => {
     // Creates the JSON data from FD
     let data = {
         name: mpName,
+        author: mpAuthor,
         url: mpURL,
         mpVer: mpVer,
         mcVer: mcVer,
+        mpDate: mpDate,
         mods: mods
     }
 

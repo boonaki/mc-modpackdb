@@ -105,9 +105,11 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     app.post('/editor', authenticateToken, (req, res) => {
         if (req.user.name === 'admin' || req.user.name === 'josh') {
             let mpName = req.body.name,
+                mpAuthor = req.body.author,
                 mpURL = req.body.url,
                 mpVer = req.body.mpVer,
                 mcVer = req.body.mcVer,
+                mpDate = req.body.mpDate,
                 mods = req.body.mods
 
             modDB.find({ name: mpName }).toArray()
@@ -115,9 +117,11 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
                     if (results.length < 1) {
                         modDB.insertOne({
                             name: mpName,
+                            author: mpAuthor,
                             url: mpURL,
                             mpVer: mpVer,
                             mcVer: mcVer,
+                            mpDate: mpDate,
                             mods: mods
                         })
                         res.status(200)
