@@ -244,7 +244,7 @@ nav > span{
 
 #modPackNames{
     border: 1px solid black;
-    background: #585f6a;
+    background: #55575a;
     /* border-radius: 10px; */
     height: 600px;
     margin: 0 5%;
@@ -258,22 +258,22 @@ nav > span{
     justify-content: space-between;
     align-items: center;
     background: white;
-    transition: transform .1s linear;
+    /* transition: transform .1s linear;
     -webkit-transition: transform .1s linear;
     -moz-transition: transform .1s linear;
-    -o-transition: transform .1s linear;
+    -o-transition: transform .1s linear; */
 }
-.modPack:hover{
+/* .modPack:hover{
     transform: scale(1.025);
     border: 1px solid black;
-}
+} */
 .modPack a{
     color: black;
 }
 
-.mpInfo{
+/* .mpInfo{
 
-}
+} */
 .mpLink{
     text-decoration: underline;
 }
@@ -318,7 +318,8 @@ nav > span{
 
 
 #expanded{
-    /* background: grey; */
+    /* background: #1a1a1ad9;
+    color: white; */
     background-color: #c6c6c6;
     box-shadow: 8px 0 0 0 #555555,
         0 8px 0 0 #555555,
@@ -348,7 +349,7 @@ nav > span{
     margin-top: 50px;
     width: 70%;
     margin: 50px 15%;
-    padding: 15px 10%;
+    padding: 15px 10% 45px 10%;
 }
 
 .general{
@@ -374,13 +375,14 @@ nav > span{
     width: 150px;
     /* padding: 0 10px; */
 }
-.authors, .gameVersion{
+.authors, .gameVersion, .recentUpdateDate{
     margin-left: 100px;
 }
 
 #modsUL{
     border: 1px solid black;
-    background: #585f6a;
+    background: #55575a;
+    color: black;
     /* border-radius: 10px; */
     height: 600px;
     /* margin: 0 5%; */

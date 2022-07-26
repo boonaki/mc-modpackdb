@@ -43,7 +43,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
         modDB.find().toArray()
             .then((results) => {
                 let renderInfo = { 'database' : results }
-                console.log(renderInfo)
+                // console.log(renderInfo)
                 res.render('index.ejs', { info : renderInfo })
             })
         //call decryptToken to decrypt accesstoken, store in userInfo variable
