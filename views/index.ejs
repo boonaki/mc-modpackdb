@@ -43,9 +43,9 @@
                                 <span class="mpLink"><a href="<%= info.database[i].url %>">source</a></span>
                             </div>
                         </div>
-                        <div class="viewModPack">
+                        <div id="view-<%= i %>" class="viewModPack" onClick="findMod(this.id)">
                             <!-- TODO: When clicking this button, go to different ejs file and load information about modpack -->
-                            <span><a href="#">view modpack &rarr;</a></span>
+                            <span>view modpack &rarr;</span>
                         </div>
                         
                         <!-- <% for(var j = 0; j < info.database[i].mods.length; j++) {%>
@@ -58,37 +58,42 @@
                 <% } %>
             </ul>
         </div>
-        <% for(var k = 0; k < info.database.length; k++) {%> 
-            <div class="expanded">
-                <section class="general">
-                    <img src="#" alt="modpackicon">
-                    <div class="generalText">
-                        <h2><%= info.database[k].name %> </h2>
-                        <div>
-                            <span>date created</span>
-                            <span class="currVersion">current version</br><%= info.database[k].mpVer %></span>
-                            <span class="gameVersion">game version</br><%= info.database[k].mcVer %></span>
-                            <span class="authors">author(s)</span>
-                            <span class="mpLinkExt"><a href="<%= info.database[k].url %>">link</a></span>
+        <section id="expandedContainer">
+            <% for(var k = 0; k < info.database.length; k++) {%> 
+                <div id="expanded-<%= k %>" class="expanded hidden">
+                    <section class="general">
+                        <img src="#" alt="modpackicon">
+                        <div class="generalText">
+                            <h2><%= info.database[k].name %> </h2>
+                            <div>
+                                <span>date created</span>
+                                <span class="currVersion">current version</br><%= info.database[k].mpVer %></span>
+                                <span class="gameVersion">game version</br><%= info.database[k].mcVer %></span>
+                                <span class="authors">author(s)</span>
+                                <span class="mpLinkExt"><a href="<%= info.database[k].url %>">link</a></span>
+                            </div>
+                            <!-- <p class="description">description:</br>descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription</p> -->
                         </div>
-                        <!-- <p class="description">description:</br>descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription</p> -->
-                    </div>
-                </section>
-                <section class="labels">
-                    <span>Mod Name</span>
-                    <span>Mod Author(s)</span>
-                </section>
-                <ul class="modsUL">
-                    <!-- for every mod in modpack -->
-                    <% for(var l = 0; l < info.database[k].mods.length; l++) {%> 
-                        <li class="modsLi">
-                            <% console.log(info.database[k].mods) %>                         
-                            <span><%= info.database[k].mods[l].modName %> </span>
-                            <span><%= info.database[k].mods[l].modAuthor %>  <a href=<%= info.database[k].mods[l].modURL %> ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/></svg></a></span>
-                        </li>
-                    <% } %> 
-                </ul>
-            </div>
-        <% } %> 
+                    </section>
+                    <section class="labels">
+                        <span>Mod Name</span>
+                        <span>Mod Author(s)</span>
+                    </section>
+                    <ul class="modsUL">
+                        <!-- for every mod in modpack -->
+                        <% for(var l = 0; l < info.database[k].mods.length; l++) {%> 
+                            <li class="modsLi">
+                                <!-- <% console.log(info.database[k].mods) %>                          -->
+                                <span><%= info.database[k].mods[l].modName %> </span>
+                                <span><%= info.database[k].mods[l].modAuthor %>  <a href=<%= info.database[k].mods[l].modURL %> ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"/></svg></a></span>
+                            </li>
+                        <% } %> 
+                    </ul>
+                </div>
+            <% } %> 
+        </section>
+        <footer id="ejsFoot">
+            <span>footer</span>
+        </footer>
     </body>
 </html>
