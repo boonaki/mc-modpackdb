@@ -33,9 +33,18 @@
             <ul id="modPackNames">
                 <% for(var i = 0; i < info.database.length; i++) {%>
                     <li class="modPack">
-                        <span><%= info.database[i].name %> |</span>
-                        <span><%= info.database[i].mpVer %> |</span>
-                        <span><%= info.database[i].mcVer %></span>
+                        <div>
+                            <span class="mpName"><%= info.database[i].name %></span>
+                            <div class="mpInfo">
+                                <span class="mpVersion">version: <%= info.database[i].mpVer %> |</span>
+                                <span class="mcVersion">game version: <%= info.database[i].mcVer %> | </span>
+                                <span class="mpLink"><a href="<%= info.database[i].url %>">source</a></span>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- TODO: When clicking this button, go to different ejs file and load information about modpack -->
+                            <span><a href="#">view modpack &rarr;</a></span>
+                        </div>
                         
                         <!-- <% for(var j = 0; j < info.database[i].mods.length; j++) {%>
                             <li class="modList">
@@ -46,6 +55,40 @@
                     </li>
                 <% } %>
             </ul>
+        </div>
+        <div id="expanded">
+            <section class="general">
+                <img src="#" alt="modicon">
+                <div class="generalText">
+                    <h2>modpack name</h2>
+                    <span>date created</span>
+                    <span class="authors">author(s)</span>
+                    <span class="gameVersion">game version:</span>
+                    <p class="description">descriptiondescriptiondescription</p>
+                </div>
+            </section>
+            <section class="labels">
+                <span>Mod Name</span>
+                <span>Mod Creators</span>
+                <span>Game Version</span>
+                <span>Latest Update</span>
+            </section>
+            <ul id="modsUL">
+                <!-- for every mod in modpack -->
+                <li class="modsLi">                        
+                    <span>Too Many Items</span>
+                    <span>creator a</span>
+                    <span>2.2.2</span>
+                    <span>2012-04-09</span>
+                 </li>
+                 <li>                        
+                    <span>mod name</span>
+                    <span>mod creators</span>
+                    <span>game version |</span>
+                    <span>date updated</span>
+                 </li>
+            </ul>
+            
         </div>
     </body>
 </html>

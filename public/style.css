@@ -180,7 +180,7 @@ a{
 /* Main Page
 /*******************************************/
 #indexHTML{
-    background: url(./assets/mcbg.png) no-repeat center center fixed; 
+    background: url(./assets/mcbg2.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -192,7 +192,7 @@ a{
 }
 
 nav > span{
-    width: 160px;
+    width: 100px;
     text-align: center;
 }
 
@@ -252,9 +252,12 @@ nav > span{
 .modPack{
     list-style: none;
     padding: 20px 10px;
+    margin: 3px;
     font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: white;
-    cursor: pointer;
     transition: transform .1s linear;
     -webkit-transition: transform .1s linear;
     -moz-transition: transform .1s linear;
@@ -264,12 +267,22 @@ nav > span{
     transform: scale(1.025);
     border: 1px solid black;
 }
+.modPack a{
+    color: black;
+}
+
+.mpInfo{
+
+}
+.mpLink{
+    text-decoration: underline;
+}
 
 .dropbtn {
     color: white;
     border: 1px solid white;
-    padding: 16px 0;
-    width: 160px;
+    padding: 10px 0;
+    width: 100px;
     text-align: center;
     font-size: 16px;
 }
@@ -283,7 +296,7 @@ nav > span{
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    margin-top: 50px;
+    margin-top: 40px;
     text-align: end;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -303,6 +316,88 @@ nav > span{
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {border: 1px solid white}
 
+
+#expanded{
+    /* background: grey; */
+    background-color: #c6c6c6;
+    box-shadow: 8px 0 0 0 #555555,
+        0 8px 0 0 #555555,
+        4px 4px 0 0 #555555,
+        -8px 0 0 0 #e8e8e8,
+        0 -8px 0 0 #e8e8e8,
+        -4px -4px 0 0 #e8e8e8,
+        0 0 0 4px #b5b4b5,
+        4px 8px 0 0 #555,
+        8px 4px 0 0 #555,
+        -4px -8px 0 0 #e8e8e8,
+        -8px -4px 0 0 #e8e8e8,
+        8px -4px 0 0 #000,
+        4px -8px 0 0 #000,
+        -8px 4px 0 0 #000,
+        -4px 8px 0 0 #000,
+        -8px -8px 0 0 #000,
+        8px 8px 0 0 #000,
+        -12px 0 0 0 #000,
+        -12px -4px 0 0 #000,
+        12px 0 0 0 #000,
+        12px 4px 0 0 #000,
+        0 -12px 0 0 #000,
+        -4px -12px 0 0 #000,
+        0 12px 0 0 #000,
+        4px 12px 0 0 #000;
+    margin-top: 50px;
+    width: 70%;
+    margin: 50px 15%;
+    padding: 15px 10%;
+}
+
+.general{
+    display: flex;
+    flex-direction: row;
+    /* margin: 0 5%; */
+}
+.general > img{
+    min-height: 200px;
+    min-width: 200px;
+}
+.generalText{
+    width: 100%;
+}
+
+.labels{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.labels > span{
+    width: 150px;
+    /* padding: 0 10px; */
+}
+.authors, .gameVersion{
+    margin-left: 100px;
+}
+
+#modsUL{
+    border: 1px solid black;
+    background: #585f6a;
+    /* border-radius: 10px; */
+    height: 600px;
+    /* margin: 0 5%; */
+}
+#modsUL li{
+    list-style: none;
+    padding: 20px 10px;
+    font-size: 20px;
+    margin-bottom: 3px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#modsUL span{
+    width: 150px;
+}
 /******************************************
 /* MODPACK EDITOR
 /*******************************************/
@@ -315,7 +410,7 @@ nav{
     border-radius: 7px;
     color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
