@@ -267,9 +267,7 @@ nav > span{
     -moz-transition: transform .1s linear;
     -o-transition: transform .1s linear; */
 }
-.viewModPack, .mpInfo{
-    /* font-weight: 200; */
-}
+
 /* .modPack:hover{
     transform: scale(1.025);
     border: 1px solid black;
@@ -354,9 +352,9 @@ nav > span{
         0 12px 0 0 #000,
         4px 12px 0 0 #000;
     margin-top: 50px;
-    width: 70%;
-    margin: 50px 15%;
-    padding: 25px 10% 45px 10%;
+    width: 54%;
+    margin: 50px 23%;
+    padding: 25px 5% 45px 5%;
 }
 
 .general{
@@ -388,9 +386,13 @@ nav > span{
 .labels{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 0 10px;
     margin-bottom: 5px;
+}
+.mpLinkExt a{
+    color: black;
+    text-decoration: underline;
 }
 .labels > span{
     width: 150px;
@@ -416,7 +418,7 @@ nav > span{
     margin-bottom: 3px;
     background: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 #modsUL span{
