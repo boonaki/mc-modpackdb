@@ -51,7 +51,6 @@ logoutEJS.addEventListener('click', () => {
 })  
 
 function findMod(id){
-    console.log(id)
     id = id.split('-')[1]
     let expandeds = document.getElementsByClassName('expanded')
     for(let i = 0; i < expandeds.length ;i++){

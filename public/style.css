@@ -9,6 +9,13 @@
     background: transparent;
 }
 
+@font-face{
+    font-family: "Cozette";
+    src: url("./fonts/CozetteVector.ttf") format("truetype");
+    font-style: normal;
+}
+
+
 /******************************************
 /* BASE STYLES
 /*******************************************/
@@ -185,7 +192,7 @@ a{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    font-family: 'Noto Sans', 'sans-serif';
+    font-family: "Cozette", 'sans-serif';
 }
 .dropdown .hidden{
     display: none;
