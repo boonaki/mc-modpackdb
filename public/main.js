@@ -77,16 +77,13 @@ let mpLink = document.querySelector('#mp_link')
 let mpLinkWarning = document.querySelector('#mp_LinkWarning')
 
 mpLink.addEventListener('change', () => {
-    if(!validateURL()){
+    if(!validateURL(mpLink.value)){
         mpLinkWarning.classList.remove('hidden')
     }else{
         mpLinkWarning.classList.add('hidden')
     }
 })
 
-function validateURL(){
-    let regex = new RegExp("^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$")
-
-    return regex.test(mpLink.value)
-    
+function validateURL(str){
+    return /^https:\/\/www\.[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/gm.test(str)
 }
