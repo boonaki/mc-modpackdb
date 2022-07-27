@@ -13,11 +13,22 @@
         <section id="modPackEditor">
             <h2>Modpack</h2>
             <form class="submitMod">
+                <!-- 
+                    TODO:
+                    -check user input of modpack link
+                    -check user input of icon url
+                    -clear form on successful submission
+                 -->
                 <input type="text" placeholder="Add Modpack Name" name="mp_name" required>
                 <input type="text" placeholder="Add Modpack Author(s)" name="mp_author">
-                <input type="text" placeholder="Add Modpack Link" name="mp_link" required>
+                <div id="mp_linkContainer">
+                    <input id="mp_link" type="url" placeholder="Add Modpack Link" name="mp_link" pattern="https://.*" required>
+                    <span id="mp_LinkWarning" class="hidden">please input a valid url</span>
+                </div>
                 <input type="text" placeholder="Add Modpack Version" name="mp_version" required>
                 <input type="text" placeholder="Add Minecraft Version" name="mc_version" required>
+                <input type="text" placeholder="Add Modpack Icon Url" name="mp_icon" required>
+
                 <div>Date Created:
                     <input type="date" min="2009-05-01" placeholder="Add Date Created" name="mp_date" required>
                 </div>

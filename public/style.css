@@ -467,10 +467,19 @@ nav{
     border: 1px solid black;
     padding: 5px;
 }
+.submitMod{
+    display: flex;
+    justify-content: space-around;
+}
+#mp_linkContainer{
+    display: flex;
+    flex-direction: column;
+}
 
 input{
     border: 1px solid black;
     padding: 5px;
+    height: 40px;
 }
 
 #mods{
