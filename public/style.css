@@ -211,8 +211,8 @@ nav > span{
 }
 
 #hero{
-    width: 90%;
-    margin: 40px 5%;
+    width: 64%;
+    margin: 40px 18%;
     padding: 10px 0 100px 0;
     /* background: #c1bcb1;
     background: #659157; */
@@ -340,6 +340,10 @@ nav > span{
     width: 100%;
     /* height: 1000px; */
 }
+
+/* .expanded::before{
+    height: 0%;
+} */
 
 .expanded{
     /* background: #1a1a1ad9;
@@ -472,7 +476,15 @@ nav > span{
 #ejsFoot{
     width: 100%;
     height: 100px;
-    background: black;
+    background: rgb(84, 84, 84);
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+#ejsFoot a{
+    font-size: 20px;
 }
 /******************************************
 /* MODPACK EDITOR

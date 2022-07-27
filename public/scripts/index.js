@@ -61,6 +61,5 @@ function findMod(id){
 
 function closeModPack(mp_id){
     mp_id = mp_id.split('-')[1]
-    console.log(mp_id)
     document.getElementById(`expanded-${mp_id}`).classList.add('hidden')
 }
