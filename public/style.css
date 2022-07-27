@@ -250,12 +250,12 @@ nav > span{
 
 #searchBars{
     margin-bottom: 20px;
+    padding: 0 5%;
 }
 #searchBars input{
     background: white;
-    width: 40%;
+    width: 100%;
     padding: 10px 5px;
-    margin: 0 30%;
     font-size: 16px;
     font-family: 'arkpixel', 'sans-serif';
 }
@@ -272,6 +272,27 @@ nav > span{
     margin: 0 5%;
     overflow-y: scroll;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .mpIMG{
     height: 50px;
     width: 50px;
@@ -299,10 +320,11 @@ nav > span{
 .modPack a{
     color: black;
 }
+ 
+.viewModPack span{
+    cursor: pointer;
+}
 
-/* .mpInfo{
-
-} */
 .mpLink{
     text-decoration: underline;
 }
@@ -353,7 +375,7 @@ nav > span{
 
 @keyframes slide {
     0% {
-        transform: scaleY(.7);
+        transform: scaleY(.6);
     }
     100% {
         transform: scaleY(1);
@@ -394,7 +416,8 @@ nav > span{
     width: 54%;
     margin: 50px 23%;
     padding: 25px 5% 45px 5%;
-    animation: slide .2s linear;
+    transform-origin: top;
+    animation: slide .4s ease-in-out;
 }
 
 /* .expanded::before{
@@ -451,6 +474,7 @@ nav > span{
     justify-content: space-evenly;
     padding: 0 10px;
     margin-bottom: 5px;
+    font-family: 'Noto Sans', 'sans-serif';
 }
 .mpLinkExt a{
     color: black;
@@ -458,12 +482,9 @@ nav > span{
 }
 .labels > span{
     width: 50%;
-    font-size: 35px;
-    /* padding: 0 10px; */
+    font-size: 20px;
+    font-weight: bold;
 }
-/* .authors, .gameVersion, .recentUpdateDate{
-    margin-left: 100px;
-} */
 
 .modsUL{
     border: 1px solid black;
