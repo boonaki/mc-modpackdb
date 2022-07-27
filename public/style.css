@@ -270,26 +270,26 @@ nav > span{
     /* border-radius: 10px; */
     height: 600px;
     margin: 0 5%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 /* width */
-::-webkit-scrollbar {
+#modPackNames::-webkit-scrollbar {
     width: 10px;
 }
   
 /* Track */
-::-webkit-scrollbar-track {
+#modPackNames::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
   
 /* Handle */
-::-webkit-scrollbar-thumb {
+#modPackNames::-webkit-scrollbar-thumb {
     background: #888;
 }
   
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+#modPackNames::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
@@ -383,9 +383,6 @@ nav > span{
 }
 
 .expanded{
-    /* background: #1a1a1ad9;
-    color: white; */
-    /* position: absolute; */
     background-color: #c6c6c6;
     box-shadow: 8px 0 0 0 #555555,
         0 8px 0 0 #555555,
@@ -447,8 +444,9 @@ nav > span{
     margin-bottom: 15px;
 }
 .general > img{
-    min-height: 200px;
-    min-width: 200px;
+    min-height: 150px;
+    min-width: 150px;
+    border: 5px solid black;
 }
 .generalText{
     width: 100%;

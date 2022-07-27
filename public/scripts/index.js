@@ -57,6 +57,8 @@ function findMod(id){
         expandeds[i].classList.add('hidden')
     }
     document.getElementById(`expanded-${id}`).classList.remove('hidden')
+    document.getElementById(`expanded-${id}`).scrollIntoView({behavior: "smooth",block: "center"})
+
 }
 
 function closeModPack(mp_id){
