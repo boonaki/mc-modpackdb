@@ -9,6 +9,13 @@
     background: transparent;
 }
 
+@font-face{
+    font-family: "arkpixel";
+    src: url("./fonts/ark-pixel-16px-latin.ttf") format("truetype");
+    font-style: normal;
+}
+
+
 /******************************************
 /* BASE STYLES
 /*******************************************/
@@ -185,7 +192,10 @@ a{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    font-family: 'Noto Sans', 'sans-serif';
+    font-family: "arkpixel", 'sans-serif';
+}
+#home a{
+    font-size: 23px;
 }
 .dropdown .hidden{
     display: none;
@@ -201,8 +211,8 @@ nav > span{
 }
 
 #hero{
-    width: 90%;
-    margin: 40px 5% 0 5%;
+    width: 64%;
+    margin: 40px 18%;
     padding: 10px 0 100px 0;
     /* background: #c1bcb1;
     background: #659157; */
@@ -247,6 +257,7 @@ nav > span{
     padding: 10px 5px;
     margin: 0 30%;
     font-size: 16px;
+    font-family: 'arkpixel', 'sans-serif';
 }
 
 #modPackNames{
@@ -292,7 +303,7 @@ nav > span{
     padding: 10px 0;
     width: 100px;
     text-align: center;
-    font-size: 16px;
+    font-size: 19px;
 }
 .dropdown {
     position: relative;
@@ -314,6 +325,7 @@ nav > span{
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-size: 18px;
 }
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #80a3df}
@@ -326,13 +338,17 @@ nav > span{
 
 #expandedContainer{
     width: 100%;
-    height: 1000px;
+    /* height: 1000px; */
 }
+
+/* .expanded::before{
+    height: 0%;
+} */
 
 .expanded{
     /* background: #1a1a1ad9;
     color: white; */
-    position: absolute;
+    /* position: absolute; */
     background-color: #c6c6c6;
     box-shadow: 8px 0 0 0 #555555,
         0 8px 0 0 #555555,
@@ -365,6 +381,22 @@ nav > span{
     padding: 25px 5% 45px 5%;
 }
 
+.close{
+    position: relative;
+    left: 100%;
+}
+.close svg{
+    height: 25px;
+    fill: white;
+    width: 25px;
+    background: #6e6e6e;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.close svg:hover{
+    background: #f55a5a;
+}
+
 .general{
     display: flex;
     flex-direction: row;
@@ -377,6 +409,7 @@ nav > span{
 }
 .generalText{
     width: 100%;
+    font-family: 'Noto Sans', 'sans-serif';
 }
 .description{
     margin-top: 20px;
@@ -403,8 +436,8 @@ nav > span{
     text-decoration: underline;
 }
 .labels > span{
-    width: 150px;
-    font-size: 20px;
+    width: 50%;
+    font-size: 35px;
     /* padding: 0 10px; */
 }
 /* .authors, .gameVersion, .recentUpdateDate{
@@ -430,7 +463,8 @@ nav > span{
     align-items: center;
 }
 .modsUL span{
-    width: 150px;
+    width: 50%;
+    font-size: 20px;
 }
 .modsLi svg{
     height: 10px;
@@ -442,7 +476,15 @@ nav > span{
 #ejsFoot{
     width: 100%;
     height: 100px;
-    background: black;
+    background: rgb(84, 84, 84);
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+#ejsFoot a{
+    font-size: 20px;
 }
 /******************************************
 /* MODPACK EDITOR

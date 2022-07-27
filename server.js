@@ -109,7 +109,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
                 mpURL = req.body.url,
                 mpVer = req.body.mpVer,
                 mcVer = req.body.mcVer,
-                mpDate = req.body.mpDate,
+                // mpDate = req.body.mpDate,
                 mods = req.body.mods
 
             modDB.find({ name: mpName }).toArray()
@@ -121,7 +121,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
                             url: mpURL,
                             mpVer: mpVer,
                             mcVer: mcVer,
-                            mpDate: mpDate,
+                            // mpDate: mpDate,
                             mods: mods
                         })
                         res.status(200)

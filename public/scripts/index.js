@@ -51,11 +51,15 @@ logoutEJS.addEventListener('click', () => {
 })  
 
 function findMod(id){
-    console.log(id)
     id = id.split('-')[1]
     let expandeds = document.getElementsByClassName('expanded')
     for(let i = 0; i < expandeds.length ;i++){
         expandeds[i].classList.add('hidden')
     }
     document.getElementById(`expanded-${id}`).classList.remove('hidden')
+}
+
+function closeModPack(mp_id){
+    mp_id = mp_id.split('-')[1]
+    document.getElementById(`expanded-${mp_id}`).classList.add('hidden')
 }
