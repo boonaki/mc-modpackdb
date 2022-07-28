@@ -243,18 +243,25 @@ nav > span{
         0 12px 0 0 #000,
         4px 12px 0 0 #000;
 }
-#hero h1{
+/* #hero h1{
     text-align: center;
     margin: 10px 0 20px 0;
-}
+} */
 
 #searchBars{
     margin-bottom: 20px;
     padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#searchBars h1{
+    font-size: 45px;
+    width: 50%;
 }
 #searchBars input{
     background: white;
-    width: 100%;
+    width: 50%;
     padding: 10px 5px;
     font-size: 16px;
     font-family: 'arkpixel', 'sans-serif';
@@ -274,22 +281,22 @@ nav > span{
 }
 
 /* width */
-#modPackNames::-webkit-scrollbar {
+#modPackNames::-webkit-scrollbar, .modsUL::-webkit-scrollbar {
     width: 10px;
 }
   
 /* Track */
-#modPackNames::-webkit-scrollbar-track {
+#modPackNames::-webkit-scrollbar-track, .modsUL::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
   
 /* Handle */
-#modPackNames::-webkit-scrollbar-thumb {
+#modPackNames::-webkit-scrollbar-thumb, .modsUL::-webkit-scrollbar-thumb {
     background: #888;
 }
   
 /* Handle on hover */
-#modPackNames::-webkit-scrollbar-thumb:hover {
+#modPackNames::-webkit-scrollbar-thumb:hover, .modsUL::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
@@ -383,8 +390,8 @@ nav > span{
 }
 
 .expanded{
-    background-color: #c6c6c6;
-    box-shadow: 8px 0 0 0 #555555,
+    background-color: #424242eb;
+    /* box-shadow: 8px 0 0 0 #555555,
         0 8px 0 0 #555555,
         4px 4px 0 0 #555555,
         -8px 0 0 0 #e8e8e8,
@@ -408,12 +415,13 @@ nav > span{
         0 -12px 0 0 #000,
         -4px -12px 0 0 #000,
         0 12px 0 0 #000,
-        4px 12px 0 0 #000;
+        4px 12px 0 0 #000; */
     margin-top: 50px;
-    width: 54%;
-    margin: 50px 23%;
-    padding: 25px 5% 45px 5%;
+    width: 100%;
+    margin: 50px 0%;
+    padding: 25px 25% 45px 25%;
     transform-origin: top;
+    color: white;
     animation: slide .4s ease-in-out;
 }
 
@@ -446,7 +454,7 @@ nav > span{
 .general > img{
     min-height: 150px;
     min-width: 150px;
-    border: 5px solid black;
+    /* border: 5px solid black; */
 }
 .generalText{
     width: 100%;
@@ -465,17 +473,19 @@ nav > span{
     display: flex;
     justify-content: space-between;
 }   
-
+.modsContainer{
+    padding: 0 5%;
+}
 .labels{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 0 10px;
+    padding: 0 20px 0 10px;
     margin-bottom: 5px;
     font-family: 'Noto Sans', 'sans-serif';
 }
 .mpLinkExt a{
-    color: black;
+    color: white;
     text-decoration: underline;
 }
 .labels > span{
@@ -485,19 +495,19 @@ nav > span{
 }
 
 .modsUL{
-    border: 1px solid black;
-    background: #55575a;
+    /* border: 1px solid black;
+    background: #55575a; */
     color: black;
     /* border-radius: 10px; */
-    height: 600px;
-    /* margin: 0 5%; */
+    height: 260px;
+    overflow: auto;
 }
 .modsUL li{
     list-style: none;
     padding: 20px 10px;
     font-size: 15px;
     margin-bottom: 3px;
-    background: white;
+    background: #e7e7e7;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -525,7 +535,8 @@ nav > span{
     color: white;
 }
 #ejsFoot span{
-    width: 100px;
+    width: 150px;
+    text-align: center;
 }
 #ejsFoot a{
     font-size: 20px;
