@@ -104,11 +104,13 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
 
     app.post('/editor', authenticateToken, (req, res) => {
         if (req.user.name === 'admin' || req.user.name === 'josh') {
+            console.log(req.body.mpIcon)
             let mpName = req.body.name,
                 mpAuthor = req.body.author,
                 mpURL = req.body.url,
                 mpVer = req.body.mpVer,
                 mcVer = req.body.mcVer,
+                mpIcon = req.body.mpIcon,
                 // mpDate = req.body.mpDate,
                 mods = req.body.mods
 
@@ -121,6 +123,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
                             url: mpURL,
                             mpVer: mpVer,
                             mcVer: mcVer,
+                            mpIcon: mpIcon,
                             // mpDate: mpDate,
                             mods: mods
                         })

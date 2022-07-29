@@ -31,6 +31,17 @@ a{
     cursor: pointer;
 }
 
+nav{
+    width: 100%;
+    margin: 10px 0 0 0;
+    height: 75px;
+    background: rgb(84, 84, 84);
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 /******************************************
 /* LOGIN / SIGN-UP
 /*******************************************/
@@ -213,9 +224,7 @@ nav > span{
 #hero{
     width: 64%;
     margin: 40px 18%;
-    padding: 10px 0 100px 0;
-    /* background: #c1bcb1;
-    background: #659157; */
+    padding: 35px 0;
     background-color: #c6c6c6;
     box-shadow: 8px 0 0 0 #555555,
         0 8px 0 0 #555555,
@@ -249,22 +258,28 @@ nav > span{
 } */
 
 #searchBars{
-    margin-bottom: 20px;
-    padding: 0 5%;
+    margin: 20px 17%;
+    padding: 20px 5%;
+    width: 66%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #424242eb;
+    color: #cfcfcf;
 }
 #searchBars h1{
     font-size: 45px;
     width: 50%;
 }
 #searchBars input{
-    background: white;
+    background: #0c0c0c;
     width: 50%;
-    padding: 10px 5px;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 21px;
+    font-weight: bold;
     font-family: 'arkpixel', 'sans-serif';
+    border: 3px solid #cfcfcf;
+    color: #cfcfcf;
 }
 .modPackInfoContainer{
     display: flex;
@@ -544,17 +559,6 @@ nav > span{
 /******************************************
 /* MODPACK EDITOR
 /*******************************************/
-
-nav{
-    width: 100%;
-    margin: 10px 0;
-    height: 75px;
-    background: rgb(84, 84, 84);
-    color: white;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
 
 #modPackEditor h2, #mpEditTitle{
     margin: 10px 0;
