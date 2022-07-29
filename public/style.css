@@ -205,7 +205,7 @@ nav{
     background-size: cover;
     font-family: "arkpixel", 'sans-serif';
 }
-#home a{
+#home{
     font-size: 23px;
 }
 .dropdown .hidden{
@@ -265,7 +265,7 @@ nav > span{
     justify-content: space-between;
     align-items: center;
     background: #424242eb;
-    color: #cfcfcf;
+    color: #fbfbfb;
 }
 #searchBars h1{
     font-size: 45px;
