@@ -569,23 +569,23 @@ nav > span{
     background-size: cover;
 }
 
-#mpEditorContainer{
-    height: 90vh;
+#mpAddContainer, #mpRemoveContainer{
+    height: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #141414cf;
 }
-#editorSearch{
+.editorSearch{
     text-align: center;
 
 }
-#editorSearch h1{
+.editorSearch h1{
     font-size: 30px;
     color: white;
 }
-#editorSearchInput{
+#editorSearchInputAdd, #editorSearchInputRemove{
     background: black;
     color: #cfcfcf;
     border: 2px solid #cfcfcf;
@@ -594,12 +594,12 @@ nav > span{
     width: 400px;
     margin: 20px;
 }
-#mpEditor{
+.mpEditorUL{
     width: 40%;
     margin: 0 30%;
     background: white;
 }
-#mpEditor li{
+.mpEditorUL li{
     list-style: none;
     display: flex;
     justify-content: space-around;
@@ -609,6 +609,7 @@ nav > span{
 .addButton a{
     color: black;
 }
+
 /* #modPackEditor h2, #mpEditTitle{
     margin: 10px 0;
 }

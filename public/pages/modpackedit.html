@@ -24,12 +24,12 @@
                 </div>
             </div>
         </nav>
-        <section id="mpEditorContainer">
-            <section id="editorSearch">
-                <h1>Add a new modpack...</h1>
-                <input id="editorSearchInput" type="search" placeholder="search modpacks" name="search">
+        <section id="mpAddContainer">
+            <section class="editorSearch">
+                <h1>Add a new modpack</h1>
+                <input id="editorSearchInputAdd" type="search" placeholder="search modpacks" name="search">
             </section>
-            <ul id="mpEditor">
+            <ul id="mpEditorAdd" class="mpEditorUL">
                 <li>
                     <span>Modpack Name</span>
                     <span>Modpack ID</span>
@@ -44,6 +44,29 @@
                     <span>Modpack Name</span>
                     <span>Modpack ID</span>
                     <span class="addButton"><a href="#">+</a></span>  
+                </li>
+            </ul>
+        </section>
+        <section id="mpRemoveContainer">
+            <section class="editorSearch">
+                <h1>Remove a modpack</h1>
+                <input id="editorSearchInputRemove" type="search" placeholder="search modpacks" name="search">
+            </section>
+            <ul id="mpEditorRemove" class="mpEditorUL">
+                <li>
+                    <span>Modpack Name</span>
+                    <span>Modpack ID</span>
+                    <span class="addButton"><a href="#">-</a></span>   
+                </li>
+                <li>
+                    <span>Modpack Name</span>
+                    <span>Modpack ID</span>
+                    <span class="addButton"><a href="#">-</a></span>  
+                </li>
+                <li>
+                    <span>Modpack Name</span>
+                    <span>Modpack ID</span>
+                    <span class="addButton"><a href="#">-</a></span>  
                 </li>
             </ul>
         </section>

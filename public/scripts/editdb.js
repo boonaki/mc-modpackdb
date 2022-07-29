@@ -49,3 +49,16 @@ logoutEJS.addEventListener('click', () => {
     //location.reload();
     //window.location = ""; // TO REFRESH THE PAGE
 })  
+
+//TODO:
+/*
+
+- Call that dudes API to get all the modpacks https://www.modpackindex.com/api/v1/modpacks
+- Allow filtering search by name for all modpacks from API
+- onclick of '+', add *formatted* data of selected modpack into db
+
+- Add every modpack in db inside of remove modpacks
+- onclick of '-', remove data of selected modpack from db
+MAYBE*: add search/filter for modpacks inside of DB to remove
+
+*/
