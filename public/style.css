@@ -40,6 +40,7 @@ nav{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    font-family: 'arkpixel', 'sans-serif';
 }
 
 /******************************************
@@ -542,7 +543,7 @@ nav > span{
     width: 100%;
     height: 100px;
     background: rgb(84, 84, 84);
-    margin: 10px 0;
+    margin-bottom: 10px;
     padding: 0% 35%;
     display: flex;
     justify-content: space-evenly;
@@ -560,7 +561,55 @@ nav > span{
 /* MODPACK EDITOR
 /*******************************************/
 
-#modPackEditor h2, #mpEditTitle{
+#editorBody{
+    background: url(./assets/mcbg6.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#mpEditorContainer{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #141414cf;
+}
+#editorSearch{
+    text-align: center;
+
+}
+#editorSearch h1{
+    font-size: 30px;
+    color: white;
+}
+#editorSearchInput{
+    background: black;
+    color: #cfcfcf;
+    border: 2px solid #cfcfcf;
+    padding: 10px;
+    font-size: 16px;
+    width: 400px;
+    margin: 20px;
+}
+#mpEditor{
+    width: 40%;
+    margin: 0 30%;
+    background: white;
+}
+#mpEditor li{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+.addButton a{
+    color: black;
+}
+/* #modPackEditor h2, #mpEditTitle{
     margin: 10px 0;
 }
 
@@ -594,4 +643,4 @@ input{
 #return a{
     color: black;
     border: 1px solid black;
-}
+} */
