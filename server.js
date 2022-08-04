@@ -70,7 +70,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
                 if (results.length < 1) {
                     //add isAdmin to check if admin before allowing delete methods
                     //allow user to delete their own entry
-                    usersDB.insertOne({ user: user, pass: pass })
+                    usersDB.insertOne({ user: user, pass: pass, admin: false })
                     // Login as newly created user here?
                     res.send({ status: 200, msg: "Added user" })
                 } else {
@@ -88,7 +88,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
             .then((results) => {
                 if (results.length === 1) {
                     // Login as user here?
-                    const endUser = { name: user }
+                    const endUser = { name: user, admin: results[0].admin }
                     const accessToken = generateAccessToken(endUser)
                     res.send({ status: 200, accessToken: accessToken })
                     //TODO: render ejs access token
@@ -102,9 +102,18 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     //     res.render('index.ejs', { userInfo : user })
     // })
 
+    app.get('/tempeditor', (req,res) => {
+        if(req.headers.cookie){
+            const _userInfo = req.headers.cookie.split('=')[1]
+            res.render("mpeditor.ejs", {user : decryptToken(_userInfo)})
+        }else{
+            res.render("mpeditor.ejs", {user : {admin : false}})
+        }
+        // res.render("mpeditor.ejs", {verification : })
+    })
+
     app.post('/editor', authenticateToken, (req, res) => {
         if (req.user.name === 'admin' || req.user.name === 'josh') {
-            console.log(req.body.mpIcon)
             let mpName = req.body.name,
                 mpAuthor = req.body.author,
                 mpURL = req.body.url,
