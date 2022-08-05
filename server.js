@@ -22,7 +22,7 @@ app.set('view engine', 'ejs')
 MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     if (err) return console.error(err)
     console.log('connected to db')
-    
+
     const db = client.db('MC-Modpack')
 
     const usersDB = db.collection('Users')
@@ -31,7 +31,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     app.get('/', (req, res) => {
         res.sendFile(__dirname + '/public/pages/signup.html')
     })
-    
+
     /**** PAGE 1 ****/
     // app.get('/apibutton', (req,res) => {
     //     fetch("https://www.modpackindex.com/api/v1/modpacks?limit=50&page=1")
@@ -65,9 +65,9 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     //                                         modpacks.push(tempObj)
     //                                     })
     //                                     .catch(err => console.error(err))
-                                    
+
     //                             }
-                                    
+
     //                                 fetch(`https://www.modpackindex.com/api/v1/modpack/${res.data[i].id}`)
     //                                     .then(mpRes => mpRes.json())
     //                                     .then((mpRes) => {
@@ -94,7 +94,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     //         })
     // })
 
-    app.get('/info', (req,res) => {
+    app.get('/info', (req, res) => {
         // console.log(req.body.cookie.split('=')[1])
         //check if cookie is in body
         // let userInfo = ""
@@ -105,9 +105,9 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
 
         modDB.find().toArray()
             .then((results) => {
-                let renderInfo = { 'database' : results }
+                let renderInfo = { 'database': results }
                 // console.log(renderInfo)
-                res.render('index.ejs', { info : renderInfo })
+                res.render('index.ejs', { info: renderInfo })
             })
         //call decryptToken to decrypt accesstoken, store in userInfo variable
         //grab modDB
@@ -117,7 +117,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
 
     app.post('/info', (req, res) => {
         let userInfo = decryptToken(req.body.cookie.split('=')[1])
-        res.send({user: userInfo})
+        res.send({ user: userInfo })
     })
 
     app.get('/login', (req, res) => {
@@ -161,20 +161,43 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
             })
     })
 
-    app.get('/tempeditor', (req,res) => {
-        if(req.headers.cookie){
+    app.get('/tempeditor', (req, res) => {
+        if (req.headers.cookie) {
             modDB.find().toArray()
                 .then((results) => {
                     const _userInfo = req.headers.cookie.split('=')[1]
-                    res.render("mpeditor.ejs", {user : decryptToken(_userInfo), database : results})
+                    res.render("mpeditor.ejs", { user: decryptToken(_userInfo), database: results })
                 })
-        }else{
-            res.render("mpeditor.ejs", {user : {admin : false}})
+        } else {
+            res.render("mpeditor.ejs", { user: { admin: false } })
         }
     })
 
-    app.delete('/removeMP', (req,res) => {
-        modDB.deleteOne({mpID : req.body.mpID})
+    app.get('/mpgetter', (req, res) => {
+        if (req.headers.cookie) {
+            if (req.query.name == undefined || req.query.name == '') {
+                fetch(`https://www.modpackindex.com/api/v1/modpacks?limit=3&page=1`)
+                    .then(result => result.json())
+                    .then((result) => {
+                        const _userInfo = req.headers.cookie.split('=')[1]
+                        res.render("mpgetter.ejs", { user: decryptToken(_userInfo), data: result.data})
+                    })
+            } else {
+                fetch(`https://www.modpackindex.com/api/v1/modpacks?limit=50&page=1&name=${req.query.name}`)
+                    .then(result => result.json())
+                    .then((result) => {
+                        console.log(result)
+                        const _userInfo = req.headers.cookie.split('=')[1]
+                        res.render("mpgetter.ejs", { user: decryptToken(_userInfo), data: result.data})
+                    })
+            }
+        } else {
+            res.render("mpgetter.ejs", { user: { admin: false }, data: [] })
+        }
+    })
+
+    app.delete('/removeMP', (req, res) => {
+        modDB.deleteOne({ mpID: req.body.mpID })
             .then((result) => {
                 return res.json('deleted')
             })
