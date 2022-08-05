@@ -44,11 +44,10 @@ logoutEJS.addEventListener('click', () => {
         let value="";
         document.cookie = name + "=" + value + expires + "; path=/";                    
     }
-    console.log('logged out')
-    //TODO: REFRESH PAGE ON LOGOUT
-    //location.reload();
-    //window.location = ""; // TO REFRESH THE PAGE
-})  
+    window.location = '/info'
+}) 
+
+
 
 //TODO:
 /*
@@ -59,6 +58,6 @@ logoutEJS.addEventListener('click', () => {
 
 - Add every modpack in db inside of remove modpacks
 - onclick of '-', remove data of selected modpack from db
-MAYBE*: add search/filter for modpacks inside of DB to remove
+*MAYBE*: add search/filter for modpacks inside of DB to remove
 
 */
