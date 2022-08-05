@@ -31,13 +31,18 @@
                 <section class="editorSearch">
                     <h1>Add a new modpack</h1>
                     <input id="editorSearchInputAdd" type="search" placeholder="search modpacks" name="search">
+                    <button id="btn">test</button>
                 </section>
                 <ul id="mpEditorAdd" class="mpEditorUL">
-                    <li>
-                        <span>Modpack Name</span>
-                        <span>Modpack ID</span>
-                        <span class="addButton">+</span>   
-                    </li>
+                    <% for(let i=0; i < searchData.length; i++) {%>
+                        <li>
+                            <span>
+                                <%= searchData[i].name %>
+                            </span>
+                            <span>Modpack ID</span>
+                            <span id=<%=`add-${searchData[i].id}`%> class="addButton">+</span>
+                        </li>
+                    <% } %>
                 </ul>
             </section>
             <section id="mpRemoveContainer">
