@@ -31,6 +31,18 @@ a{
     cursor: pointer;
 }
 
+nav{
+    width: 100%;
+    margin: 10px 0 0 0;
+    height: 75px;
+    background: rgb(84, 84, 84);
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'arkpixel', 'sans-serif';
+}
+
 /******************************************
 /* LOGIN / SIGN-UP
 /*******************************************/
@@ -194,7 +206,7 @@ a{
     background-size: cover;
     font-family: "arkpixel", 'sans-serif';
 }
-#home a{
+#home{
     font-size: 23px;
 }
 .dropdown .hidden{
@@ -213,9 +225,7 @@ nav > span{
 #hero{
     width: 64%;
     margin: 40px 18%;
-    padding: 10px 0 100px 0;
-    /* background: #c1bcb1;
-    background: #659157; */
+    padding: 35px 0;
     background-color: #c6c6c6;
     box-shadow: 8px 0 0 0 #555555,
         0 8px 0 0 #555555,
@@ -243,29 +253,73 @@ nav > span{
         0 12px 0 0 #000,
         4px 12px 0 0 #000;
 }
-#hero h1{
+/* #hero h1{
     text-align: center;
     margin: 10px 0 20px 0;
-}
+} */
 
 #searchBars{
-    margin-bottom: 20px;
+    margin: 20px 17%;
+    padding: 20px 5%;
+    width: 66%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #424242eb;
+    color: #fbfbfb;
+}
+#searchBars h1{
+    font-size: 45px;
+    width: 50%;
 }
 #searchBars input{
-    background: white;
-    width: 40%;
-    padding: 10px 5px;
-    margin: 0 30%;
-    font-size: 16px;
+    background: #0c0c0c;
+    width: 50%;
+    padding: 10px;
+    font-size: 21px;
+    font-weight: bold;
     font-family: 'arkpixel', 'sans-serif';
+    border: 3px solid #cfcfcf;
+    color: #cfcfcf;
 }
-
+.modPackInfoContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 #modPackNames{
     border: 1px solid black;
     background: #55575a;
     /* border-radius: 10px; */
     height: 600px;
     margin: 0 5%;
+    overflow-y: auto;
+}
+
+/* width */
+#modPackNames::-webkit-scrollbar, .modsUL::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+#modPackNames::-webkit-scrollbar-track, .modsUL::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+/* Handle */
+#modPackNames::-webkit-scrollbar-thumb, .modsUL::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+/* Handle on hover */
+#modPackNames::-webkit-scrollbar-thumb:hover, .modsUL::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.mpIMG{
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
 }
 .modPack{
     list-style: none;
@@ -289,10 +343,11 @@ nav > span{
 .modPack a{
     color: black;
 }
+ 
+.viewModPack span{
+    cursor: pointer;
+}
 
-/* .mpInfo{
-
-} */
 .mpLink{
     text-decoration: underline;
 }
@@ -341,16 +396,18 @@ nav > span{
     /* height: 1000px; */
 }
 
-/* .expanded::before{
-    height: 0%;
-} */
+@keyframes slide {
+    0% {
+        transform: scaleY(.6);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
 
 .expanded{
-    /* background: #1a1a1ad9;
-    color: white; */
-    /* position: absolute; */
-    background-color: #c6c6c6;
-    box-shadow: 8px 0 0 0 #555555,
+    background-color: #424242eb;
+    /* box-shadow: 8px 0 0 0 #555555,
         0 8px 0 0 #555555,
         4px 4px 0 0 #555555,
         -8px 0 0 0 #e8e8e8,
@@ -374,12 +431,19 @@ nav > span{
         0 -12px 0 0 #000,
         -4px -12px 0 0 #000,
         0 12px 0 0 #000,
-        4px 12px 0 0 #000;
+        4px 12px 0 0 #000; */
     margin-top: 50px;
-    width: 54%;
-    margin: 50px 23%;
-    padding: 25px 5% 45px 5%;
+    width: 100%;
+    margin: 50px 0%;
+    padding: 25px 25% 45px 25%;
+    transform-origin: top;
+    color: white;
+    animation: slide .4s ease-in-out;
 }
+
+/* .expanded::before{
+    transform: scaleY(0);
+} */
 
 .close{
     position: relative;
@@ -404,12 +468,14 @@ nav > span{
     margin-bottom: 15px;
 }
 .general > img{
-    min-height: 200px;
-    min-width: 200px;
+    min-height: 150px;
+    min-width: 150px;
+    /* border: 5px solid black; */
 }
 .generalText{
     width: 100%;
     font-family: 'Noto Sans', 'sans-serif';
+    padding: 0 25px;
 }
 .description{
     margin-top: 20px;
@@ -423,41 +489,41 @@ nav > span{
     display: flex;
     justify-content: space-between;
 }   
-
+.modsContainer{
+    padding: 0 5%;
+}
 .labels{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 0 10px;
+    padding: 0 20px 0 10px;
     margin-bottom: 5px;
+    font-family: 'Noto Sans', 'sans-serif';
 }
 .mpLinkExt a{
-    color: black;
+    color: white;
     text-decoration: underline;
 }
 .labels > span{
     width: 50%;
-    font-size: 35px;
-    /* padding: 0 10px; */
+    font-size: 20px;
+    font-weight: bold;
 }
-/* .authors, .gameVersion, .recentUpdateDate{
-    margin-left: 100px;
-} */
 
 .modsUL{
-    border: 1px solid black;
-    background: #55575a;
+    /* border: 1px solid black;
+    background: #55575a; */
     color: black;
     /* border-radius: 10px; */
-    height: 600px;
-    /* margin: 0 5%; */
+    height: 260px;
+    overflow: auto;
 }
 .modsUL li{
     list-style: none;
     padding: 20px 10px;
     font-size: 15px;
     margin-bottom: 3px;
-    background: white;
+    background: #e7e7e7;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -477,11 +543,16 @@ nav > span{
     width: 100%;
     height: 100px;
     background: rgb(84, 84, 84);
-    margin: 10px 0;
+    margin-bottom: 10px;
+    padding: 0% 35%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     color: white;
+}
+#ejsFoot span{
+    width: 150px;
+    text-align: center;
 }
 #ejsFoot a{
     font-size: 20px;
@@ -490,18 +561,68 @@ nav > span{
 /* MODPACK EDITOR
 /*******************************************/
 
-nav{
-    width: 100%;
-    margin: 10px 0;
-    height: 75px;
-    background: rgb(84, 84, 84);
-    color: white;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+#editorBody{
+    background: url(./assets/mcbg6.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-#modPackEditor h2, #mpEditTitle{
+#accessDenied{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #141414cf;
+    color: #cfcfcf;
+    font-family: 'arkpixel', sans-serif;
+    font-size: 40px;
+}
+
+#mpAddContainer, #mpRemoveContainer{
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #141414cf;
+}
+.editorSearch{
+    text-align: center;
+
+}
+.editorSearch h1{
+    font-size: 30px;
+    color: white;
+}
+#editorSearchInputAdd, #editorSearchInputRemove{
+    background: black;
+    color: #cfcfcf;
+    border: 2px solid #cfcfcf;
+    padding: 10px;
+    font-size: 16px;
+    width: 400px;
+    margin: 20px;
+}
+.mpEditorUL{
+    width: 40%;
+    margin: 0 30%;
+    background: white;
+}
+.mpEditorUL li{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+.addButton{
+    color: black;
+}
+
+/* #modPackEditor h2, #mpEditTitle{
     margin: 10px 0;
 }
 
@@ -535,4 +656,4 @@ input{
 #return a{
     color: black;
     border: 1px solid black;
-}
+} */

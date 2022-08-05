@@ -20,7 +20,8 @@ submitMod.addEventListener('click', (event) => {
         mpURL = '',
         mpVer = '',
         mcVer = '',
-        mpDate = ''
+        mpDate = '',
+        mpIcon = '';
 
     let mods = []
 
@@ -33,6 +34,7 @@ submitMod.addEventListener('click', (event) => {
             mpVer = FD.get('mp_version')
             mcVer = FD.get('mc_version')
             mpDate = FD.get('mp_date')
+            mpIcon = FD.get('mp_icon')
         } else { // Mod form
             let temp = {
                 modName: '',
@@ -56,6 +58,7 @@ submitMod.addEventListener('click', (event) => {
         mpVer: mpVer,
         mcVer: mcVer,
         mpDate: mpDate,
+        mpIcon: mpIcon,
         mods: mods
     }
 
@@ -85,5 +88,5 @@ mpLink.addEventListener('change', () => {
 })
 
 function validateURL(str){
-    return /^https:\/\/www\.[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/gm.test(str)
+    return /^https:\/\/www\.[a-z0-9-]+\.[a-z]+(\/[a-zA-Z0-9#_-]+\/?)*$/gm.test(str)
 }

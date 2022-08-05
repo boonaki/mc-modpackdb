@@ -48,7 +48,23 @@ logoutEJS.addEventListener('click', () => {
     //TODO: REFRESH PAGE ON LOGOUT
     //location.reload();
     //window.location = ""; // TO REFRESH THE PAGE
-})  
+}) 
+
+//grabs user token and verifies authentication for access into editor
+// document.querySelector('#addMP').addEventListener('click', _ => {
+//     fetch('/tempeditor', {
+//         method: 'GET',
+//         headers: {
+//             "Authorization": "Bearer " + document.cookie, // Get cookie token
+//             "Content-type": "application/json"
+//         },
+//     })
+//         .then(res => res.json())
+//         .then((res) => {
+//             console.log(res)
+//         })
+    
+// })
 
 function findMod(id){
     id = id.split('-')[1]
@@ -57,6 +73,8 @@ function findMod(id){
         expandeds[i].classList.add('hidden')
     }
     document.getElementById(`expanded-${id}`).classList.remove('hidden')
+    document.getElementById(`expanded-${id}`).scrollIntoView({behavior: "smooth",block: "center"})
+
 }
 
 function closeModPack(mp_id){
