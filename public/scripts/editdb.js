@@ -45,10 +45,9 @@ logoutEJS.addEventListener('click', () => {
         document.cookie = name + "=" + value + expires + "; path=/";                    
     }
     window.location = '/info'
-    //TODO: REFRESH PAGE ON LOGOUT
-    //location.reload();
-    //window.location = ""; // TO REFRESH THE PAGE
-})  
+}) 
+
+
 
 //TODO:
 /*

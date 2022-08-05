@@ -36,17 +36,7 @@
                     <li>
                         <span>Modpack Name</span>
                         <span>Modpack ID</span>
-                        <span class="addButton"><a href="#">+</a></span>   
-                    </li>
-                    <li>
-                        <span>Modpack Name</span>
-                        <span>Modpack ID</span>
-                        <span class="addButton"><a href="#">+</a></span>  
-                    </li>
-                    <li>
-                        <span>Modpack Name</span>
-                        <span>Modpack ID</span>
-                        <span class="addButton"><a href="#">+</a></span>  
+                        <span class="addButton">+</span>   
                     </li>
                 </ul>
             </section>
@@ -56,21 +46,14 @@
                     <!-- <input id="editorSearchInputRemove" type="search" placeholder="search modpacks" name="search"> -->
                 </section>
                 <ul id="mpEditorRemove" class="mpEditorUL">
-                    <li>
-                        <span>Modpack Name</span>
-                        <span>Modpack ID</span>
-                        <span class="addButton"><a href="#">-</a></span>   
-                    </li>
-                    <li>
-                        <span>Modpack Name</span>
-                        <span>Modpack ID</span>
-                        <span class="addButton"><a href="#">-</a></span>  
-                    </li>
-                    <li>
-                        <span>Modpack Name</span>
-                        <span>Modpack ID</span>
-                        <span class="addButton"><a href="#">-</a></span>  
-                    </li>
+                    <% console.log(database) %> 
+                    <% for(let i = 0; i < database.length; i++) {%> 
+                        <li>
+                            <span><%= database[i].name %></span>
+                            <span>Modpack ID</span>
+                            <span class="removeButton" id="mp-<%= i %>" onclick="removeMP(this.id)">-</span>   
+                        </li>
+                    <% } %> 
                 </ul>
             </section>
         <% }else{ %>

@@ -569,6 +569,18 @@ nav > span{
     background-size: cover;
 }
 
+#accessDenied{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #141414cf;
+    color: #cfcfcf;
+    font-family: 'arkpixel', sans-serif;
+    font-size: 40px;
+}
+
 #mpAddContainer, #mpRemoveContainer{
     height: 45vh;
     display: flex;
@@ -606,7 +618,7 @@ nav > span{
     align-items: center;
     padding: 10px 0;
 }
-.addButton a{
+.addButton{
     color: black;
 }
 
