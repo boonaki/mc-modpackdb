@@ -46,7 +46,7 @@
                     <!-- <input id="editorSearchInputRemove" type="search" placeholder="search modpacks" name="search"> -->
                 </section>
                 <ul id="mpEditorRemove" class="mpEditorUL">
-                    <% console.log(database) %> 
+                    <%# console.log(database) %> 
                     <% for(let i = 0; i < database.length; i++) {%> 
                         <li>
                             <span><%= database[i].name %></span>
@@ -58,7 +58,7 @@
             </section>
         <% }else{ %>
             <section id="accessDenied">
-                <span>access denied</span>
+                <span>access denied &#9785;</span>
             </section>
         <% } %>  
         <footer id="ejsFoot">
