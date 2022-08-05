@@ -1,0 +1,61 @@
+<!-- EJS FILE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Modpack DB</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Noto+Sans&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="../scripts/mpgetter.js" defer></script>
+</head>
+
+<body id="editorBody">
+    <nav>
+        <span id="home"><a href="/info">home</a></span>
+        <h1>MCMODPACKDB</h1>
+        <div class="dropdown">
+            <span class="dropbtn"><%= user.name || "USER" %> </span>
+            <div class="dropdown-content">
+                <a href="#">Manage Account</a>
+                <a href="#" id="logoutEditor">Logout</a>
+                <a href="pages/login.html" id="loginEditor" class="hidden">Login</a>
+            </div>
+        </div>
+    </nav>
+    <!-- check if token is admin -->
+    <% if(user.admin) {%>
+        <section id="mpAddContainer">
+            <section class="editorSearch">
+                <h1>Add a new modpack</h1>
+                <input id="editorSearchInputAdd" type="search" placeholder="search modpacks" name="search">
+                <button id="btn">test</button>
+            </section>
+            <ul id="mpEditorAdd" class="mpEditorUL">
+                <% for(let i=0; i < data.length; i++) {%>
+                    <li>
+                        <span>
+                            <%= data[i].name %>
+                        </span>
+                        <span>Modpack ID</span>
+                        <span id=<%=`add-${data[i].id}`%> class="addButton">+</span>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+        <% }else{ %>
+            <section id="accessDenied">
+                <span>access denied &#9785;</span>
+            </section>
+            <% } %>
+                <footer id="ejsFoot">
+                    <span><a href="#">github</a></span>
+                    <span><a href="#">contribute</a></span>
+                </footer>
+</body>
+
+</html>
