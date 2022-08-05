@@ -16,38 +16,83 @@ if (document.cookie) {
         .then((res) => {
             dropbtn.innerHTML = res.user.name
         })
-}else{
+} else {
     logoutEJS.classList.add('hidden')
     loginEJS.classList.remove('hidden')
 }
 
 logoutEJS.addEventListener('click', () => {
-    if(!document.cookie){
+    if (!document.cookie) {
         alert('not logged in')
         return
     }
     let cookies = document.cookie.split(";");
-    for (var i = 0; i < cookies.length; i++){   
-        let spcook =  cookies[i].split("=");
+    for (var i = 0; i < cookies.length; i++) {
+        let spcook = cookies[i].split("=");
         deleteCookie(spcook[0]);
         dropbtn.innerHTML = 'USER'
         logoutEJS.classList.add('hidden')
         loginEJS.classList.remove('hidden')
     }
 
-    function deleteCookie(cookiename){
+    function deleteCookie(cookiename) {
         let d = new Date();
         d.setDate(d.getDate() - 1);
-        let expires = ";expires="+d;
-        let name=cookiename;
+        let expires = ";expires=" + d;
+        let name = cookiename;
         //alert(name);
-        let value="";
-        document.cookie = name + "=" + value + expires + "; path=/";                    
+        let value = "";
+        document.cookie = name + "=" + value + expires + "; path=/";
     }
     window.location = '/info'
-}) 
+})
 
+/**** QUERY SEARCHING ****/
 
+const button = document.getElementById('btn')
+const search = document.getElementById('editorSearchInputAdd')
+const parent = document.getElementById('mpEditorAdd')
+
+button.addEventListener('click', () => {
+    window.location = '/tempeditor?' + new URLSearchParams({ name: search.value })
+})
+
+parent.addEventListener('click', (e) => {
+    console.log(e.target)
+    if (e.target.matches('span.addButton')) {
+        const modpackID = e.target.id.split('-')[1]
+        fetch(`/retrievemp/${modpackID}`)
+            .then(result => result.json())
+            .then((result) => {
+                console.log(result)
+                if(result.length > 0){
+                    fetch(`/show/${modpackID}`, {
+                        method : 'PUT'
+                    })
+                        .then((status) => {
+                            console.log("success")
+                        })
+                        .catch(err => console.error(err))
+                }else{
+                    fetch(`/addMP/${modpackID}`)
+                        .then(res => res.json())
+                        .then((res) => {
+                            fetch('/editor', {
+                                method: 'POST',
+                                headers: { 'Content-type': 'application/json', 'Authorization' : "Bearer " + document.cookie, },
+                                body : JSON.stringify(res)
+                            })
+                                .then(status => {
+                                    if(status.ok) return status.json()
+                                })
+                                .catch(err => console.error(err))
+                                
+                        })
+                        .catch(err => console.error(err))
+                }
+            })
+    }
+})
 
 //TODO:
 /*

@@ -4,6 +4,7 @@ const PORT = 8000
 const md5 = require("md5")
 const jwt = require('jsonwebtoken')
 const fetch = require('node-fetch')
+const cors = require('cors')
 const { render } = require('ejs')
 require('dotenv').config()
 const MongoClient = require('mongodb').MongoClient
@@ -163,36 +164,35 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
 
     app.get('/tempeditor', (req, res) => {
         if (req.headers.cookie) {
-            modDB.find().toArray()
-                .then((results) => {
-                    const _userInfo = req.headers.cookie.split('=')[1]
-                    res.render("mpeditor.ejs", { user: decryptToken(_userInfo), database: results })
-                })
-        } else {
-            res.render("mpeditor.ejs", { user: { admin: false } })
-        }
-    })
-
-    app.get('/mpgetter', (req, res) => {
-        if (req.headers.cookie) {
+            let searchData = []
             if (req.query.name == undefined || req.query.name == '') {
                 fetch(`https://www.modpackindex.com/api/v1/modpacks?limit=3&page=1`)
                     .then(result => result.json())
                     .then((result) => {
-                        const _userInfo = req.headers.cookie.split('=')[1]
-                        res.render("mpgetter.ejs", { user: decryptToken(_userInfo), data: result.data})
+                        // const _userInfo = req.headers.cookie.split('=')[1]
+                        searchData = result.data
+                        //waits for result from api call
+                        modDB.find().toArray()
+                            .then((results) => {
+                                const _userInfo = req.headers.cookie.split('=')[1]
+                                res.render("mpeditor.ejs", { user: decryptToken(_userInfo), database: results, searchData : searchData })
+                            })
                     })
             } else {
                 fetch(`https://www.modpackindex.com/api/v1/modpacks?limit=50&page=1&name=${req.query.name}`)
                     .then(result => result.json())
                     .then((result) => {
-                        console.log(result)
-                        const _userInfo = req.headers.cookie.split('=')[1]
-                        res.render("mpgetter.ejs", { user: decryptToken(_userInfo), data: result.data})
+                        searchData = result.data
+                        //waits for result from api call
+                        modDB.find().toArray()
+                            .then((results) => {
+                                const _userInfo = req.headers.cookie.split('=')[1]
+                                res.render("mpeditor.ejs", { user: decryptToken(_userInfo), database: results, searchData : searchData })
+                            })
                     })
             }
         } else {
-            res.render("mpgetter.ejs", { user: { admin: false }, data: [] })
+            res.render("mpeditor.ejs", { user: { admin: false } })
         }
     })
 
@@ -204,37 +204,89 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
             .catch(err => console.error(err))
     })
 
-    // app.post('/editor', authenticateToken, (req, res) => {
-    //     if (req.user.name === 'admin' || req.user.name === 'josh') {
-    //         let mpName = req.body.name,
-    //             mpAuthor = req.body.author,
-    //             mpURL = req.body.url,
-    //             mpVer = req.body.mpVer,
-    //             mcVer = req.body.mcVer,
-    //             mpIcon = req.body.mpIcon,
-    //             // mpDate = req.body.mpDate,
-    //             mods = req.body.mods
+    app.get('/retrievemp/:modpackID', (req,res) => {
+        modDB.find({ id: +req.params.modpackID }).toArray()
+            .then((result) => {
+                console.log(req.params.modpackID, result)
+                res.json(result)
+            })
+    })
 
-    //         modDB.find({ name: mpName }).toArray()
-    //             .then((results) => {
-    //                 if (results.length < 1) {
-    //                     modDB.insertOne({
-    //                         name: mpName,
-    //                         author: mpAuthor,
-    //                         url: mpURL,
-    //                         mpVer: mpVer,
-    //                         mcVer: mcVer,
-    //                         mpIcon: mpIcon,
-    //                         // mpDate: mpDate,
-    //                         mods: mods
-    //                     })
-    //                     res.status(200)
-    //                 }
-    //             })
-    //     } else {
-    //         res.status(403)
-    //     }
-    // })
+    app.put('/show/:modpackID', (req,res) => {
+        modDB.findOneAndUpdate(
+            { id : +req.params.modpackID},
+            { $set : {showing: true}},
+            { upsert: true}
+        )
+            .then((result) => {
+                console.log(result)
+            })
+            .catch(err => console.error(err))
+    })
+
+    app.get('/addMP/:modpackID', (req,res) => {
+        let modpacks = []
+        // Fetch mod list from modpackindex
+        fetch(`https://www.modpackindex.com/api/v1/modpack/${req.params.modpackID}/mods`)
+            .then(result => result.json())
+            .then((result) => {
+                for (let j = 0; j < result.data.length; j++) {
+                    // console.log(result.data[j].curse_info)
+                    fetch(`https://api.curseforge.com/v1/mods/${result.data[j].curse_info.curse_id}`, {
+                        method: 'GET',
+                        headers: { 'Content-type': 'application/json', "x-api-key": process.env.CURSEKEY }
+                    })
+                        .then(curseRes => curseRes.json())
+                        .then((curseRes) => {
+                            // console.log(curseRes.data.authors[0].name)
+                            let tempObj = {
+                                id: result.data[j].id,
+                                modName: result.data[j].name,
+                                modSlug: result.data[j].slug,
+                                modURL: result.data[j].url,
+                                modAuthor: curseRes.data.authors[0].name
+                            }
+                            modpacks.push(tempObj)
+                        })
+                        .catch(err => console.error(err))
+                }
+            })
+            .then((result) => {
+                fetch(`https://www.modpackindex.com/api/v1/modpack/${req.params.modpackID}`)
+                    .then(mpRes => mpRes.json())
+                    .then((mpRes) => {
+                        let mp = {
+                            id: mpRes.data.id,
+                            mpName: mpRes.data.name,
+                            slug: mpRes.data.slug,
+                            thumb: mpRes.data.thumbnail_url,
+                            url: mpRes.data.url,
+                            summ: mpRes.data.summary,
+                            mpAuthor: mpRes.data.authors[0].name,
+                            mcVer: mpRes.data.minecraft_versions[0].name,
+                            mods: modpacks,
+                            showing: true
+                        }
+                        res.json(mp)
+                            
+                    })
+                    .catch(err => console.error(err))
+            })
+    })
+
+    app.post('/editor', authenticateToken, (req, res) => {
+        if (req.user.name === 'admin' || req.user.name === 'josh') {
+            modDB.find({ id: req.body.id }).toArray()
+                .then((results) => {
+                    if (results.length < 1) {
+                        modDB.insertOne(req.body)
+                        res.status(200)
+                    }
+                })
+        } else {
+            res.status(403)
+        }
+    })
 
     app.get('/getall', (req, res) => {
         usersDB.find().toArray().then(results => res.send({ results }))

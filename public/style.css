@@ -297,22 +297,22 @@ nav > span{
 }
 
 /* width */
-#modPackNames::-webkit-scrollbar, .modsUL::-webkit-scrollbar {
+#modPackNames::-webkit-scrollbar, .modsUL::-webkit-scrollbar, .mpEditorUL::-webkit-scrollbar {
     width: 10px;
 }
   
 /* Track */
-#modPackNames::-webkit-scrollbar-track, .modsUL::-webkit-scrollbar-track {
+#modPackNames::-webkit-scrollbar-track, .modsUL::-webkit-scrollbar-track, .mpEditorUL::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
   
 /* Handle */
-#modPackNames::-webkit-scrollbar-thumb, .modsUL::-webkit-scrollbar-thumb {
+#modPackNames::-webkit-scrollbar-thumb, .modsUL::-webkit-scrollbar-thumb, .mpEditorUL::-webkit-scrollbar-thumb {
     background: #888;
 }
   
 /* Handle on hover */
-#modPackNames::-webkit-scrollbar-thumb:hover, .modsUL::-webkit-scrollbar-thumb:hover {
+#modPackNames::-webkit-scrollbar-thumb:hover, .modsUL::-webkit-scrollbar-thumb:hover, .mpEditorUL::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
@@ -610,6 +610,8 @@ nav > span{
     width: 40%;
     margin: 0 30%;
     background: white;
+    height: 60%;
+    overflow-x: auto;
 }
 .mpEditorUL li{
     list-style: none;
