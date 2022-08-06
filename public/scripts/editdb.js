@@ -51,11 +51,14 @@ logoutEJS.addEventListener('click', () => {
 
 const button = document.getElementById('btn')
 const search = document.getElementById('editorSearchInputAdd')
-const parent = document.getElementById('mpEditorAdd')
 
 button.addEventListener('click', () => {
     window.location = '/tempeditor?' + new URLSearchParams({ name: search.value })
 })
+
+/**** ADDING MODPACKS ****/
+
+const parent = document.getElementById('mpEditorAdd')
 
 parent.addEventListener('click', (e) => {
     console.log(e.target)
@@ -97,12 +100,6 @@ parent.addEventListener('click', (e) => {
 //TODO:
 /*
 
-- Call that dudes API to get all the modpacks https://www.modpackindex.com/api/v1/modpacks
-- Allow filtering search by name for all modpacks from API
-- onclick of '+', add *formatted* data of selected modpack into db
-
-- Add every modpack in db inside of remove modpacks
-- onclick of '-', remove data of selected modpack from db
-*MAYBE*: add search/filter for modpacks inside of DB to remove
+add search/filter for modpacks inside of DB to remove
 
 */
