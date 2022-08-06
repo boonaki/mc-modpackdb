@@ -6,11 +6,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edit Modpack DB</title>
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="/assets/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Noto+Sans&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="../scripts/editdb.js" defer></script>
+        <script type="text/javascript" src="/scripts/editdb.js" defer></script>
     </head>
     <body id="editorBody">
         <nav>
@@ -54,9 +54,9 @@
                     <%# console.log(database) %> 
                     <% for(let i = 0; i < database.length; i++) {%> 
                         <li>
-                            <span><%= database[i].name %></span>
+                            <span><%= database[i].mpName %></span>
                             <span>Modpack ID</span>
-                            <span class="removeButton" id="mp-<%= i %>" onclick="removeMP(this.id)">-</span>   
+                            <span id="mp-<%= database[i].id %>" class="hideButton">-</span>   
                         </li>
                     <% } %> 
                 </ul>

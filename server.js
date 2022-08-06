@@ -100,20 +100,27 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
             let searchData = []
             //if the query in URL is empty
             if (req.query.name == undefined || req.query.name == '') {
-                fetch(`https://www.modpackindex.com/api/v1/modpacks?limit=3&page=1`)
-                    .then(result => result.json())
-                    .then((result) => {
-                        // store data (sent in as an array), into declared array
-                        searchData = result.data
-                        //waits for result from api call, then grabs the modpack database
-                        modDB.find().toArray()
-                            .then((results) => {
-                                //initializes userinfo to send
-                                const _userInfo = req.headers.cookie.split('=')[1]
-                                //sends neccessary data to render ejs file
-                                res.render("mpeditor.ejs", { user: decryptToken(_userInfo), database: results, searchData : searchData })
-                            })
+                modDB.find().toArray()
+                    .then((results) => {
+                        //initializes userinfo to send
+                        const _userInfo = req.headers.cookie.split('=')[1]
+                        //sends neccessary data to render ejs file
+                        res.render("mpeditor.ejs", { user: decryptToken(_userInfo), database: results, searchData : searchData })
                     })
+                // fetch(`https://www.modpackindex.com/api/v1/modpacks?limit=0&page=1`)
+                //     .then(result => result.json())
+                //     .then((result) => {
+                //         // store data (sent in as an array), into declared array
+                //         searchData = result.data
+                //         //waits for result from api call, then grabs the modpack database
+                        // modDB.find().toArray()
+                        //     .then((results) => {
+                        //         //initializes userinfo to send
+                        //         const _userInfo = req.headers.cookie.split('=')[1]
+                        //         //sends neccessary data to render ejs file
+                        //         res.render("mpeditor.ejs", { user: decryptToken(_userInfo), database: results, searchData : searchData })
+                        //     })
+                //     })
             //if the query in URL is not empty
             } else {
                 //replace parameter in api call with the query value
@@ -135,14 +142,18 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
         }
     })
 
-    //removes a modpack
-    app.delete('/removeMP', (req, res) => {
-        modDB.deleteOne({ mpID: req.body.mpID })
-            .then((result) => {
-                return res.json('deleted')
-            })
+    //hides a modpack
+    app.put('/hideMP/:modpackID', (req,res) => {
+        modDB.findOneAndUpdate(
+            //filter database based on given modpackID
+            { id : +req.params.modpackID},
+            { $set : {showing: false}},
+            { upsert: true}
+        )
             .catch(err => console.error(err))
     })
+
+    //TODO: add endpoint that removes the modpack from the database
 
     //grabs a single modpack based on modpackID
     app.get('/retrievemp/:modpackID', (req,res) => {
@@ -153,7 +164,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
     })
 
     //If selected modpack is already in our database, flip the showing boolean to true
-    app.put('/show/:modpackID', (req,res) => {
+    app.put('/showMP/:modpackID', (req,res) => {
         modDB.findOneAndUpdate(
             //filter database based on given modpackID
             { id : +req.params.modpackID},
@@ -223,19 +234,21 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
             })
     })
 
-    // app.post('/editor', authenticateToken, (req, res) => {
-    //     if (req.user.name === 'admin' || req.user.name === 'josh') {
-    //         modDB.find({ id: req.body.id }).toArray()
-    //             .then((results) => {
-    //                 if (results.length < 1) {
-    //                     modDB.insertOne(req.body)
-    //                     res.status(200)
-    //                 }
-    //             })
-    //     } else {
-    //         res.status(403)
-    //     }
-    // })
+    //adds modpack into our database
+    app.post('/editor', authenticateToken, (req, res) => {
+        if (req.user.name === 'admin' || req.user.name === 'josh') {
+            //finds by ID
+            modDB.find({ id: req.body.id }).toArray()
+                .then((results) => {
+                    if (results.length < 1) {
+                        modDB.insertOne(req.body)
+                        res.status(200)
+                    }
+                })
+        } else {
+            res.status(403)
+        }
+    })
 
     //grabs all users in database
     app.get('/getall', (req, res) => {

@@ -4,6 +4,8 @@ let dropbtn = document.querySelector('.dropbtn')
 //check if there is a cookie
 //if there is, make fetch with cookie in body
 
+console.log('working')
+
 let data = { 'cookie': document.cookie }
 
 if (document.cookie) {
@@ -58,10 +60,9 @@ button.addEventListener('click', () => {
 
 /**** ADDING MODPACKS ****/
 
-const parent = document.getElementById('mpEditorAdd')
+const addingUL = document.getElementById('mpEditorAdd')
 
-parent.addEventListener('click', (e) => {
-    console.log(e.target)
+addingUL.addEventListener('click', (e) => {
     if (e.target.matches('span.addButton')) {
         const modpackID = e.target.id.split('-')[1]
         fetch(`/retrievemp/${modpackID}`)
@@ -69,7 +70,7 @@ parent.addEventListener('click', (e) => {
             .then((result) => {
                 console.log(result)
                 if(result.length > 0){
-                    fetch(`/show/${modpackID}`, {
+                    fetch(`/showMP/${modpackID}`, {
                         method : 'PUT'
                     })
                         .then((status) => {
@@ -97,9 +98,16 @@ parent.addEventListener('click', (e) => {
     }
 })
 
-//TODO:
-/*
+/**** HIDE MODPACKS ****/
 
-add search/filter for modpacks inside of DB to remove
+const removeUL = document.getElementById('mpEditorRemove')
 
-*/
+removeUL.addEventListener('click', (e) => {
+    if(e.target.matches('span.hideButton')){
+        const modpackID = e.target.id.split('-')[1]
+        fetch(`/hideMP/${modpackID}`, {
+            method : 'PUT'
+        })
+            .catch(err => console.error(err))
+    }
+})

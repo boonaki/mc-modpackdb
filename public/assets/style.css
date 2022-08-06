@@ -53,7 +53,7 @@ nav{
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url(./assets/mcbg.png);
+    background-image: url(./imgs/mcbg.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -199,7 +199,7 @@ nav{
 /* Main Page
 /*******************************************/
 #indexHTML{
-    background: url(./assets/mcbg2.png) no-repeat center center fixed; 
+    background: url(./imgs/mcbg2.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -562,7 +562,7 @@ nav > span{
 /*******************************************/
 
 #editorBody{
-    background: url(./assets/mcbg6.png) no-repeat center center fixed; 
+    background: url(./imgs/mcbg6.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
