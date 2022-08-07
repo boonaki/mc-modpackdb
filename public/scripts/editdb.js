@@ -49,16 +49,18 @@ logoutEJS.addEventListener('click', () => {
 
 /**** QUERY SEARCHING ****/
 
-const button = document.getElementById('btn')
+const button = document.getElementById('searchBtn')
 const search = document.getElementById('editorSearchInputAdd')
-const parent = document.getElementById('mpEditorAdd')
 
 button.addEventListener('click', () => {
     window.location = '/tempeditor?' + new URLSearchParams({ name: search.value })
 })
 
-parent.addEventListener('click', (e) => {
-    console.log(e.target)
+/**** ADDING MODPACKS ****/
+
+const addingUL = document.getElementById('mpEditorAdd')
+
+addingUL.addEventListener('click', (e) => {
     if (e.target.matches('span.addButton')) {
         const modpackID = e.target.id.split('-')[1]
         fetch(`/retrievemp/${modpackID}`)
@@ -66,7 +68,7 @@ parent.addEventListener('click', (e) => {
             .then((result) => {
                 console.log(result)
                 if(result.length > 0){
-                    fetch(`/show/${modpackID}`, {
+                    fetch(`/showMP/${modpackID}`, {
                         method : 'PUT'
                     })
                         .then((status) => {
@@ -94,15 +96,16 @@ parent.addEventListener('click', (e) => {
     }
 })
 
-//TODO:
-/*
+/**** HIDE MODPACKS ****/
 
-- Call that dudes API to get all the modpacks https://www.modpackindex.com/api/v1/modpacks
-- Allow filtering search by name for all modpacks from API
-- onclick of '+', add *formatted* data of selected modpack into db
+const removeUL = document.getElementById('mpEditorRemove')
 
-- Add every modpack in db inside of remove modpacks
-- onclick of '-', remove data of selected modpack from db
-*MAYBE*: add search/filter for modpacks inside of DB to remove
-
-*/
+removeUL.addEventListener('click', (e) => {
+    if(e.target.matches('span.hideButton')){
+        const modpackID = e.target.id.split('-')[1]
+        fetch(`/hideMP/${modpackID}`, {
+            method : 'PUT'
+        })
+            .catch(err => console.error(err))
+    }
+})

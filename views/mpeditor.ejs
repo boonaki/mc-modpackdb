@@ -6,11 +6,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edit Modpack DB</title>
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="/assets/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Noto+Sans&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="../scripts/editdb.js" defer></script>
+        <script type="text/javascript" src="/scripts/editdb.js" defer></script>
     </head>
     <body id="editorBody">
         <nav>
@@ -31,32 +31,35 @@
                 <section class="editorSearch">
                     <h1>Add a new modpack</h1>
                     <input id="editorSearchInputAdd" type="search" placeholder="search modpacks" name="search">
-                    <button id="btn">test</button>
+                    <button id="searchBtn">search</button>                    
                 </section>
                 <ul id="mpEditorAdd" class="mpEditorUL">
-                    <% for(let i=0; i < searchData.length; i++) {%>
-                        <li>
-                            <span>
+                    <% for(let i = 0; i < searchData.length; i++) {%>
+                        <li class="addLi">
+                            <span class="name">
                                 <%= searchData[i].name %>
                             </span>
-                            <span>Modpack ID</span>
-                            <span id=<%=`add-${searchData[i].id}`%> class="addButton">+</span>
+                            <span class="mpid">ID: <%= searchData[i].id %></span>
+                            <span id="add-<%= searchData[i].id %>" class="addButton">+</span>
                         </li>
                     <% } %>
                 </ul>
             </section>
             <section id="mpRemoveContainer">
-                <section class="editorSearch">
-                    <h1>Remove a modpack</h1>
+                
+                <h1 id="removeH1">Remove a modpack</h1>
                     <!-- <input id="editorSearchInputRemove" type="search" placeholder="search modpacks" name="search"> -->
-                </section>
+                
                 <ul id="mpEditorRemove" class="mpEditorUL">
                     <%# console.log(database) %> 
-                    <% for(let i = 0; i < database.length; i++) {%> 
-                        <li>
-                            <span><%= database[i].name %></span>
-                            <span>Modpack ID</span>
-                            <span class="removeButton" id="mp-<%= i %>" onclick="removeMP(this.id)">-</span>   
+                    <% for(let j = 0; j < database.length; j++) {%> 
+                        <li class="addLi">
+                            <span><%= database[j].mpName %></span>
+                            <span>ID: <%= database[j].id %></span>
+                            <span id="mp-<%= database[j].id %>" class="hideButton">-</span>
+                            <% if(!database[j].showing) {%>
+                                <span id="mp-<%= database[j].id %>" class="hideButton"><svg class="trashIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M160 400C160 408.8 152.8 416 144 416C135.2 416 128 408.8 128 400V192C128 183.2 135.2 176 144 176C152.8 176 160 183.2 160 192V400zM240 400C240 408.8 232.8 416 224 416C215.2 416 208 408.8 208 400V192C208 183.2 215.2 176 224 176C232.8 176 240 183.2 240 192V400zM320 400C320 408.8 312.8 416 304 416C295.2 416 288 408.8 288 400V192C288 183.2 295.2 176 304 176C312.8 176 320 183.2 320 192V400zM317.5 24.94L354.2 80H424C437.3 80 448 90.75 448 104C448 117.3 437.3 128 424 128H416V432C416 476.2 380.2 512 336 512H112C67.82 512 32 476.2 32 432V128H24C10.75 128 0 117.3 0 104C0 90.75 10.75 80 24 80H93.82L130.5 24.94C140.9 9.357 158.4 0 177.1 0H270.9C289.6 0 307.1 9.358 317.5 24.94H317.5zM151.5 80H296.5L277.5 51.56C276 49.34 273.5 48 270.9 48H177.1C174.5 48 171.1 49.34 170.5 51.56L151.5 80zM80 432C80 449.7 94.33 464 112 464H336C353.7 464 368 449.7 368 432V128H80V432z"/></svg></span>
+                            <% } %> 
                         </li>
                     <% } %> 
                 </ul>
@@ -67,8 +70,7 @@
             </section>
         <% } %>  
         <footer id="ejsFoot">
-            <span><a href="#">github</a></span>
-            <span><a href="#">contribute</a></span>         
+            <span><a href="#">github</a></span>      
         </footer>
     </body>
 </html>

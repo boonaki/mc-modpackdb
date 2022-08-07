@@ -1,3 +1,5 @@
+/**** NOT IN USE ****/
+
 const modEditSection = document.querySelector('#mods')
 const addMod = document.querySelector('#addModButton')
 
