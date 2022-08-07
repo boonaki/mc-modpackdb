@@ -4,8 +4,6 @@ let dropbtn = document.querySelector('.dropbtn')
 //check if there is a cookie
 //if there is, make fetch with cookie in body
 
-console.log('working')
-
 let data = { 'cookie': document.cookie }
 
 if (document.cookie) {
@@ -51,7 +49,7 @@ logoutEJS.addEventListener('click', () => {
 
 /**** QUERY SEARCHING ****/
 
-const button = document.getElementById('btn')
+const button = document.getElementById('searchBtn')
 const search = document.getElementById('editorSearchInputAdd')
 
 button.addEventListener('click', () => {

@@ -33,36 +33,40 @@
             <span>in</span>
         </section> -->
         <section id="searchBars">
-            <h1>Minecraft Modpacks</h1>
+            <div id="headers">
+                <h1>Minecraft Modpacks</h1>
+                <h2>a collection of some of the best mod-packs the community has to offer</h2>
+            </div>
             <input type="search" placeholder="search for a modpack..." name="searchModPack">
         </section>
         <section id="hero">
             <ul id="modPackNames">
                 
                 <% for(var i = 0; i < info.database.length; i++) {%>
-                    <li class="modPack">
-                        <div class="modPackInfoContainer">
-                            <img src="<%= info.database[i].thumb || "./assets/grassblock.png" %>" class="mpIMG">
-                            <div>
-                                <h3 class="mpName"><%= info.database[i].mpName %></h3>
-                                <div class="mpInfo">
-                                    <span class="mpVersion">version: <%= info.database[i].mpVer %> |</span>
-                                    <span class="mcVersion">game version: <%= info.database[i].mcVer %> | </span>
-                                    <span class="mpLink"><a href="<%= info.database[i].url %>">source</a></span>
+                    <% if(info.database[i].showing) {%> 
+                        <li class="modPack">
+                            <div class="modPackInfoContainer">
+                                <img src="<%= info.database[i].thumb || "./assets/grassblock.png" %>" class="mpIMG">
+                                <div>
+                                    <h3 class="mpName"><%= info.database[i].mpName %></h3>
+                                    <div class="mpInfo">
+                                        <span class="mcVersion">game version: <%= info.database[i].mcVer %> | </span>
+                                        <span class="mpLink"><a href="<%= info.database[i].url %>">source</a></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="view-<%= i %>" class="viewModPack" onClick="findMod(this.id)">
-                            <span>view modpack &rarr;</span>
-                        </div>
-                        
-                        <%# for(var j = 0; j < info.database[i].mods.length; j++) {%>
-                            <!-- <li class="modList">
-                                <span><%# info.database[i].mods[j].modName %></span>
-                            </li> -->
-                        <%# } %>
+                            <div id="view-<%= i %>" class="viewModPack" onClick="findMod(this.id)">
+                                <span>view modpack &rarr;</span>
+                            </div>
+                            
+                            <%# for(var j = 0; j < info.database[i].mods.length; j++) {%>
+                                <!-- <li class="modList">
+                                    <span><%# info.database[i].mods[j].modName %></span>
+                                </li> -->
+                            <%# } %>
 
-                    </li>
+                        </li>
+                    <% } %> 
                 <% } %>
             </ul>
         </section>
@@ -74,8 +78,7 @@
                         <img src="<%= info.database[k].thumb || "./assets/grassblock.png" %>" alt="modpackicon">
                         <div class="generalText">
                             <h2><%= info.database[k].mpName %> </h2>
-                            <div>
-                                <span class="currVersion">current version</br><%= info.database[k].mpVer || "No Version" %></span>
+                            <div id="generalTextInfo">
                                 <span class="gameVersion">game version</br><%= info.database[k].mcVer || "No Version" %></span>
                                 <span class="authors">author(s)</br><%= info.database[k].mpAuthor || "No Author" %></span>
                                 <span class="mpLinkExt"><a href="<%= info.database[k].url %>">link</a></span>
@@ -103,8 +106,7 @@
             <% } %> 
         </section>
         <footer id="ejsFoot">
-            <span><a href="#">github</a></span>
-            <span><a href="#">contribute</a></span>           
+            <span><a href="#">github</a></span>      
         </footer>
     </body>
 </html>

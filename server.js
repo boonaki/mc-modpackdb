@@ -20,6 +20,7 @@ MongoClient.connect(process.env.CONNSTRING, (err, client) => {
 
     const db = client.db('MC-Modpack')
 
+    //stores database collections into variables
     const usersDB = db.collection('Users')
     const modDB = db.collection('Modpack')
 
