@@ -10,12 +10,3 @@ This project visualizes a collection of the best modpacks the minecraft communit
 **Tech used:** HTML, CSS, JavaScript, MongoDB, EJS, Express.js, JWT
 
 Underneath the hood showcases an example of both Authentication and Authorization, making use of JWT's, hashed passwords and admin verification. API calls are made to other Web API's such as [curseforge's](https://docs.curseforge.com) API and from [modpack index](https://modpackindex.docs.apiary.io/#).
-
-## Examples:
-Here are some other projects in my portfolio
-
-**Tea API:** https://github.com/boonaki/boonakis-tea-api
-
-**NASA APOD:** https://github.com/boonaki/nasaAPODapp
-
-**Teas:** https://github.com/boonaki/tea-database
